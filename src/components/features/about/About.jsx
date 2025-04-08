@@ -9,7 +9,7 @@ export const About = () => {
   });
 
   return (
-    <section id="about" className="py-20">
+    <section id="about" className="py-20 bg-white dark:bg-gray-900 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
@@ -34,7 +34,7 @@ export const About = () => {
             className="relative rounded-2xl overflow-hidden shadow-xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600&h=800"
+              src="/Kartikey_Kumar_Portfolio_Pic.jpg"
               alt="Profile"
               className="w-full h-full object-cover"
             />

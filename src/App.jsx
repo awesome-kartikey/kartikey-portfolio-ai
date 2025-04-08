@@ -1,18 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Navbar, ThemeToggle } from './components/layout';
+import { Navbar, ScrollToTop } from './components/layout';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
 import { Projects } from './pages/Projects';
 import { Skills } from './pages/Skills';
 import { Contact } from './pages/Contact';
+import Chatbot from './components/features/chatbot/Chatbot';
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors">
+      <ScrollToTop />
+      <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 dark:bg-gray-900 transition-colors">
         <Navbar />
-        <ThemeToggle />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -20,6 +21,7 @@ function App() {
           <Route path="/skills" element={<Skills />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
+        <Chatbot />
       </div>
     </Router>
   );

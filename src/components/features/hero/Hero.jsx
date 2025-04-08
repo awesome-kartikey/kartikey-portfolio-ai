@@ -7,15 +7,15 @@ import ParticleField from '../three/ParticleField.jsx';
 export const Hero = () => {
   return (
     <section className="relative h-screen flex items-center">
-      {/* Background - changed to dark */}
-      <div className="absolute inset-0 -z-10 bg-gray-950" />
+      {/* Background - transparent to show particles */}
+      <div className="absolute inset-0 -z-10 bg-transparent" />
       
       <ParticleField />
       
       {/* Content container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
         <motion.h2 
-          className="text-blue-400 text-2xl sm:text-3xl font-semibold mb-4"
+          className="text-blue-500 dark:text-blue-400 text-2xl sm:text-3xl font-semibold mb-4"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -24,16 +24,16 @@ export const Hero = () => {
         </motion.h2>
         
         <motion.h1 
-          className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 dark:text-white mb-6"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Hi, I'm <span className="text-blue-400">Kartikey Kumar</span>
+          Hi, I'm <span className="text-blue-500 dark:text-blue-300">Kartikey Kumar</span>
         </motion.h1>
         
         <motion.p 
-          className="text-lg md:text-xl text-gray-300 max-w-3xl mb-10"
+          className="text-lg md:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mb-10"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
@@ -82,9 +82,9 @@ export const Hero = () => {
         }}
       >
         <div className="flex flex-col items-center">
-          <span className="text-sm text-gray-400 mb-2">Scroll Down</span>
+          <span className="text-sm text-gray-500 dark:text-gray-300 mb-2">Scroll Down</span>
           <svg 
-            className="w-6 h-6 text-gray-400" 
+            className="w-6 h-6 text-gray-500 dark:text-gray-300" 
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24" 

@@ -43,7 +43,7 @@ export const Skills = () => {
   });
 
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 bg-white dark:bg-gray-900 relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}

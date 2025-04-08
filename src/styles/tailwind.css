@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@layer base {
+  :root {
+    --color-primary: 37 99 235; /* blue-600 */
+    --color-secondary: 107 114 128; /* gray-500 */
+    --color-background: 255 255 255; /* white */
+    --color-foreground: 17 24 39; /* gray-900 */
+    --color-muted: 107 114 128; /* gray-500 */
+    --color-accent: 37 99 235; /* blue-600 */
+    --color-card: 255 255 255; /* white */
+  }
+
+  .dark {
+    --color-primary: 59 130 246; /* blue-500 */
+    --color-secondary: 209 213 219; /* gray-300 */
+    --color-background: 17 24 39; /* gray-900 */
+    --color-foreground: 243 244 246; /* gray-100 */
+    --color-muted: 156 163 175; /* gray-400 */
+    --color-accent: 59 130 246; /* blue-500 */
+    --color-card: 31 41 55; /* gray-800 */
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Component styles */
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section {
+    @apply py-20 relative z-20;
+  }
+
+  .card {
+    @apply bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg;
+  }
+
+  /* Button styles */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50
+    disabled:pointer-events-none ring-offset-background;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary text-primary-foreground hover:bg-primary/90;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary text-secondary-foreground hover:bg-secondary/80;
+  }
+
+  .btn-outline {
+    @apply btn border border-input hover:bg-accent hover:text-accent-foreground;
+  }
+
+  .btn-ghost {
+    @apply btn hover:bg-accent hover:text-accent-foreground;
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm
+    ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium
+    placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2
+    focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .form-label {
+    @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+  }
+}
+
+/* Utility styles */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-400;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-in-out forwards;
+  }
+
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+}

@@ -1,10 +1,13 @@
 import React from 'react';
 import { Projects as ProjectsSection } from '../components/features/projects';
+import { ProjectCategories } from '../components/features/project-categories';
+import { PageContainer } from '../components/layout';
 
 export const Projects = () => {
   return (
-    <div className="pt-20">
+    <PageContainer>
       <ProjectsSection />
-    </div>
+      <ProjectCategories />
+    </PageContainer>
   );
 };

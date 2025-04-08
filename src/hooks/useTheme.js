@@ -17,6 +17,20 @@ export const useTheme = () => {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
+  // Add keyboard shortcut listener (Alt+Shift+D)
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.altKey && event.shiftKey && event.key === 'D') {
+        toggleTheme();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
+
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
   };
