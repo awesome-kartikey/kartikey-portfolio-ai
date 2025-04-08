@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export const MobileMenu = ({ isOpen, onClose }) => {
+export const MobileMenu = ({ isOpen, onClose, onViewResume }) => {
   // Close menu when ESC key is pressed
   useEffect(() => {
     const handleEsc = (event) => {
@@ -46,7 +46,7 @@ export const MobileMenu = ({ isOpen, onClose }) => {
           
           {/* Menu */}
           <motion.div
-            className="fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-800 z-50 shadow-lg overflow-y-auto"
+            className="fixed top-0 right-0 max-h-screen w-64 bg-white dark:bg-gray-800 z-50 shadow-lg overflow-y-auto"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
@@ -119,6 +119,15 @@ export const MobileMenu = ({ isOpen, onClose }) => {
                 </Link>
               </nav>
             </div>
+            <button
+              onClick={onViewResume}
+              className="w-64 mx-auto mt-6 px-6 py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 active:bg-indigo-800 text-lg tracking-wide flex items-center justify-center transition-colors duration-200 shadow-lg"
+            >
+              <span>View Resume</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </button>
           </motion.div>
         </>
       )}

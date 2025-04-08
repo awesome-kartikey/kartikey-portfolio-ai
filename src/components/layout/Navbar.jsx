@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { MobileMenu } from "./MobileMenu";
 import { useTheme } from "../../hooks/useTheme";
-import { Moon, Sun } from "lucide-react";
-import { motion } from "framer-motion";
+import { Moon, Sun, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
+  const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
   const handleViewResume = () => {
     const pdfUrl = '/Kartikey_Kumar_Resume.pdf';
     window.open(pdfUrl, '_blank');
@@ -86,12 +89,30 @@ export const Navbar = () => {
                 <Sun className="w-5 h-5 text-yellow-400" />
               )}
             </button>
-            <div className="md:hidden">
-              <MobileMenu />
-            </div>
+            
+            {/* Mobile Menu Button */}
+            <button
+              onClick={toggleMobileMenu}
+              className="md:hidden p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Open menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-5 h-5 text-gray-800 dark:text-gray-200" />
+              ) : (
+                <Menu className="w-5 h-5 text-gray-800 dark:text-gray-200" />
+              )}
+            </button>
           </div>
         </div>
       </div>
+
+      
+          <MobileMenu 
+            isOpen={isMobileMenuOpen} 
+            onClose={toggleMobileMenu}
+            onViewResume={handleViewResume}
+          />
+        
     </header>
   );
 };
