@@ -2,258 +2,391 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import resumeContext from "./resumeContext";
-// ^ This is the file we created in Part 2 with chatbot instructions or resume info
 import { supabase } from "../../../supabaseClient.js";
-// ^ Replace with your Supabase client configuration or remove if you prefer another data store
 import ChatMessage from "./ChatMessage";
 import styles from "./chatbot.module.css";
-import { MessageSquare, X, Send } from "lucide-react";
+import { MessageSquare, X, Send, Bot } from "lucide-react"; // Added Bot icon
+
 export default function Chatbot() {
-  // ----------- 1) State Variables -----------
-  // open: toggles chatbot open/close
-  // messages: stores the conversation history
-  // input: tracks what's typed in the text field
-  // loading: true while we wait for a bot response
-  // sessionId: identifies each user session
-  // showFloating: toggles the "floating bubble" text
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [sessionId, setSessionId] = useState(null);
-  const [showFloating, setShowFloating] = useState(true);
-  // We'll use these references for scroll effects
+  const [showFloating, setShowFloating] = useState(false); // Start hidden, fade in
   const messagesContainerRef = useRef(null);
-  const headerRef = useRef(null);
-  // ----------- 2) Hide Floating Bubble After Delay -----------
+  // No need for headerRef anymore with sticky header/footer
+
+  // --- Effects ---
+
+  // Show Floating Bubble After Delay (Fade in)
   useEffect(() => {
     const timer = setTimeout(() => {
-      setShowFloating(false);
-    }, 5000); // 5 seconds
+      setShowFloating(true);
+    }, 1500); // Show after 1.5 seconds
     return () => clearTimeout(timer);
   }, []);
-  // ----------- 3) Generate or Retrieve Session ID -----------
+
+  // Generate or Retrieve Session ID
   useEffect(() => {
-    const existingSession = localStorage.getItem("chat_session_id");
-    if (existingSession) {
-      setSessionId(existingSession);
+    let storedSessionId = localStorage.getItem("chat_session_id");
+    let sessionTimestamp = localStorage.getItem("chat_session_timestamp");
+    const oneDay = 24 * 60 * 60 * 1000; // Milliseconds in a day
+
+    // Check if session exists and is less than a day old
+    if (storedSessionId && sessionTimestamp && (Date.now() - parseInt(sessionTimestamp, 10) < oneDay)) {
+      setSessionId(storedSessionId);
     } else {
+      // Clear old session data and create a new one
+      localStorage.removeItem("chat_session_id");
+      localStorage.removeItem("chat_session_timestamp");
       createNewSession();
     }
   }, []);
-  // ----------- 4) Fetch Chat Messages Once SessionID is Known -----------
+
+  // Fetch Chat Messages Once SessionID is Known
   useEffect(() => {
     if (sessionId) {
       fetchSessionMessages();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId]);
-  // Helper function to create a new session in Supabase
+
+  // Auto-Scrolling to the Latest Message
+  useEffect(() => {
+    if (messagesContainerRef.current && open) {
+      // Scroll happens more naturally due to flex layout now
+      // Add a small delay to ensure rendering is complete, especially after loading
+       const timer = setTimeout(() => {
+         if(messagesContainerRef.current) {
+            messagesContainerRef.current.scrollTo({
+              top: messagesContainerRef.current.scrollHeight,
+              behavior: "smooth",
+            });
+         }
+       }, 100); // Short delay
+       return () => clearTimeout(timer);
+    }
+  }, [messages, loading, open]); // Trigger on messages, loading state change, and open state
+
+
+  // --- API/Data Functions ---
+
+  // Create New Session
   const createNewSession = async () => {
-    const newSessionId = crypto.randomUUID();
-    localStorage.setItem("chat_session_id", newSessionId);
-    setSessionId(newSessionId);
-    // Add a new record in our "chat_sessions" table (dummy name)
-    await supabase.from("chat_sessions").insert([
-      {
-        session_id: newSessionId,
-        messages: [],
-        resume_context: resumeContext,
-        // You can store the context in the DB if you want to reference it
-      },
-    ]);
-  };
-  // Helper function to fetch existing messages for the current session
-  const fetchSessionMessages = async () => {
-    const response = await fetch(
-      `https://mmdgfucciskngqikxowk.supabase.co/rest/v1/chat_sessions?select=messages&session_id=eq.${sessionId}`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": import.meta.env.VITE_SUPABASE_ANON_KEY, // ✅ Required for authentication
-          "Authorization": `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}` // ✅ Some endpoints require this
-        }
+    try {
+      const newSessionId = crypto.randomUUID();
+      localStorage.setItem("chat_session_id", newSessionId);
+      localStorage.setItem("chat_session_timestamp", Date.now().toString()); // Store timestamp
+      setSessionId(newSessionId);
+
+      // Only insert if using Supabase sessions table
+      if (supabase && supabase.from) { // Check if supabase client is configured
+        await supabase.from("chat_sessions").insert([
+          {
+            session_id: newSessionId,
+            messages: [], // Start with empty messages in DB
+            resume_context: resumeContext, // Store context if desired
+            created_at: new Date().toISOString(), // Add timestamp
+          },
+        ]);
+         // Add initial welcome message after session creation
+        addWelcomeMessage(newSessionId, []); // Pass new session ID and empty initial messages
+      } else {
+         addWelcomeMessage(null, []); // Add welcome message locally if no DB
       }
-    );
-  
-    if (!response.ok) {
-      console.error("Error fetching messages:", response.statusText);
-      setMessages([
-        { role: "bot", text: "⚠️ Error fetching previous messages. Please try again later." }
+
+    } catch (error) {
+      console.error("Error creating new session:", error);
+      // Handle error appropriately, maybe show a message to the user
+       setMessages([
+        { role: "bot", text: "⚠️ Could not start a new chat session. Please refresh." }
       ]);
+    }
+  };
+
+   // Add Welcome Message (factored out)
+  const addWelcomeMessage = async (currentSessionId, existingMessages) => {
+     if (existingMessages.length === 0) {
+        const welcomeMessage = {
+            role: "bot",
+            text: "👋 Hello! How can I help you today? Feel free to ask about my experience.",
+        };
+        setMessages([welcomeMessage]);
+        // Update DB only if session exists and DB is used
+        if (currentSessionId && supabase && supabase.from) {
+            await updateSessionMessages([welcomeMessage], currentSessionId);
+        }
+    }
+  }
+
+  // Fetch Session Messages
+  const fetchSessionMessages = async () => {
+    if (!supabase || !supabase.from) {
+      // If not using Supabase or it's not configured, just add welcome message if needed
+       addWelcomeMessage(null, messages);
       return;
     }
-  
-    const data = await response.json();
-    setMessages(data.length > 0 ? data[0].messages : []);
+    try {
+      const { data, error } = await supabase
+        .from("chat_sessions")
+        .select("messages")
+        .eq("session_id", sessionId)
+        .single(); // Expect only one row
+
+      if (error && error.code !== 'PGRST116') { // Ignore 'PGRST116' (No rows found)
+        throw error;
+      }
+
+      const fetchedMessages = data?.messages || [];
+      setMessages(fetchedMessages);
+
+      // Add welcome message if chat history is empty after fetch
+      addWelcomeMessage(sessionId, fetchedMessages);
+
+    } catch (err) {
+      console.error("Error fetching messages:", err);
+      setMessages([
+        { role: "bot", text: "⚠️ Error loading previous messages. Starting fresh." }
+      ]);
+       // Add welcome message even if fetch failed, but after the error message
+       setTimeout(() => addWelcomeMessage(sessionId, [{role: 'bot', text:'error'}]), 50); // Add slight delay
+    }
   };
-  
-  // Updates messages array in Supabase whenever a new message is added
-  const updateSessionMessages = async (updatedMessages) => {
-    await supabase
-      .from("chat_sessions")
-      .update({ messages: updatedMessages })
-      .eq("session_id", sessionId);
+
+  // Update Session Messages in DB
+  const updateSessionMessages = async (updatedMessages, currentSessionId = sessionId) => {
+    if (!currentSessionId || !supabase || !supabase.from) return; // No session or DB configured
+
+    try {
+      await supabase
+        .from("chat_sessions")
+        .update({ messages: updatedMessages, updated_at: new Date().toISOString() }) // Add updated timestamp
+        .eq("session_id", currentSessionId);
+    } catch (error) {
+      console.error("Error updating session messages:", error);
+      // Optional: Notify user or retry logic
+    }
   };
-  // ----------- 5) Toggling the Chat Window -----------
+
+  // --- Event Handlers ---
+
+  // Toggle Chat Window
   const toggleChat = () => {
     setOpen((prev) => !prev);
-    // If the chat is being opened for the first time, add a welcome message
-    if (!open && messages.length === 0) {
-      const welcomeMessage = {
-        role: "bot",
-        text: "👋 Hi! Ask me anything about my projects or background.",
-      };
-      setMessages([welcomeMessage]);
-      if (sessionId) updateSessionMessages([welcomeMessage]);
-    }
+     // Welcome message logic is now handled by fetchSessionMessages/createNewSession
   };
-  // ----------- 6) Sending a Message -----------
+
+  // Send Message
   const sendMessage = async () => {
-    if (!input.trim()) return;
-  
-    // 1️⃣ Add user's message to local state
-    const userMessage = { role: "user", text: input };
+    const trimmedInput = input.trim();
+    if (!trimmedInput || loading) return; // Prevent sending empty or while loading
+
+    const userMessage = { role: "user", text: trimmedInput };
     const updatedMessages = [...messages, userMessage];
-    setMessages(updatedMessages);
+
+    setMessages(updatedMessages); // Show user message immediately
+    setInput(""); // Clear input immediately
     setLoading(true);
-  
-    // 2️⃣ Update database with user's message
-    if (sessionId) {
-      await updateSessionMessages(updatedMessages);
-    }
-  
+
+    // Update database optimistically (optional, can be moved after API call)
+    updateSessionMessages(updatedMessages);
+
     try {
-      // 3️⃣ Call Supabase Edge Function
-      const { data, error } = await supabase.functions.invoke("chatbot", {
-        body: { message: input, context: resumeContext },
-      });
-  
-      if (error || !data?.reply) {
-        throw new Error(error?.message || "Invalid response from chatbot.");
+       // Ensure Supabase functions client is available
+      if (!supabase || !supabase.functions) {
+         throw new Error("Supabase functions client is not configured.");
       }
-  
-      // 4️⃣ Add bot's response to state
+
+      // Call Supabase Edge Function
+      const { data, error } = await supabase.functions.invoke("chatbot", {
+        body: JSON.stringify({ // Ensure body is stringified if needed by your function
+           message: trimmedInput,
+           context: resumeContext,
+           sessionId: sessionId // Optionally pass session ID to function
+        }),
+      });
+
+      if (error || !data?.reply) {
+        console.error("Chatbot function error:", error);
+        throw new Error(error?.message || "Invalid response from chatbot function.");
+      }
+
+      // Add bot's response
       const botMessage = { role: "bot", text: data.reply };
       const finalMessages = [...updatedMessages, botMessage];
       setMessages(finalMessages);
-  
-      // 5️⃣ Update session messages in Supabase
-      if (sessionId) {
-        await updateSessionMessages(finalMessages);
-      }
-  
-      // Clear input field
-      setInput("");
+
+      // Update session messages in Supabase with the final conversation
+      updateSessionMessages(finalMessages);
+
     } catch (err) {
-      console.error("Chatbot API Error:", err);
-  
-      // 6️⃣ Handle errors gracefully
+      console.error("Chatbot Send Error:", err);
       const errorMessage = {
         role: "bot",
-        text: "⚠️ Error fetching response. Please try again later.",
+        text: "⚠️ Sorry, I encountered an issue. Please try asking again.", // More user-friendly error
       };
+       // Add error message to the *current* set of messages in state
       setMessages((prev) => [...prev, errorMessage]);
-  
-      if (sessionId) {
-        await updateSessionMessages([...updatedMessages, errorMessage]);
-      }
+
+      // Update session in DB including the error message shown to the user
+      updateSessionMessages([...updatedMessages, errorMessage]);
+    } finally {
+      setLoading(false); // Ensure loading is set to false in all cases
     }
-  
-    setLoading(false);
   };
-  
-  // ----------- 7) Auto-Scrolling to the Latest Message -----------
-  useEffect(() => {
-    if (!messagesContainerRef.current || !headerRef.current) return;
-    if (open) {
-      // We wait a bit so the new message has time to render
-      setTimeout(() => {
-        const container = messagesContainerRef.current;
-        const headerHeight = headerRef.current.offsetHeight;
-        container.scrollTo({
-          top: container.scrollHeight - headerHeight,
-          behavior: "smooth",
-        });
-      }, 100);
+
+  // Handle Enter key press
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) { // Allow Shift+Enter for new lines if needed in future
+      e.preventDefault(); // Prevent default form submission/newline
+      sendMessage();
     }
-  }, [messages, loading, open]);
-  // ----------- 8) Rendering the Chat Interface -----------
+  };
+
+
+  // --- Animation Variants ---
+
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.8, y: 50 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 150,
+        damping: 20,
+        duration: 0.5,
+      },
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      y: 50,
+      transition: { duration: 0.3, ease: "easeIn" },
+    },
+  };
+
+  const bubbleVariants = {
+    hidden: { opacity: 0, scale: 0.5, y: 20 },
+    visible: { opacity: 1, scale: 1, y: 0, transition: { delay: 0.2, duration: 0.4, ease: "easeOut" } },
+    exit: { opacity: 0, scale: 0.5, y: 20, transition: { duration: 0.2, ease: "easeIn" } },
+  };
+
+ const floatingTextVariants = {
+    hidden: { opacity: 0, x: 20 },
+    visible: { opacity: 1, x: 0, transition: { delay: 0.5, duration: 0.4, ease: "easeOut" } }, // Delay matches parent bubble entry
+  };
+
+  // --- Render ---
   return (
     <>
       {/* Minimized Chat Bubble */}
       <AnimatePresence>
         {!open && (
-          <motion.div
+          <motion.button // Use button for accessibility
+            aria-label="Open Chat"
             className={styles.wrapper}
             onClick={toggleChat}
-            drag
-            dragMomentum={false}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            transition={{ duration: 0.5 }}
+            variants={bubbleVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            whileHover={{ scale: 1.1, transition: { type: 'spring', stiffness: 300 } }} // Button hover effect
+            whileTap={{ scale: 0.95 }} // Button tap effect
           >
-            {showFloating && (
-              <motion.div
-                className={styles.floating}
-                whileHover={{ scale: 1.05 }}
-              >
-                <span>Ask me about my projects!</span>
-              </motion.div>
-            )}
+            {/* Floating Text Bubble */}
+            <AnimatePresence>
+              {showFloating && (
+                <motion.div
+                  className={styles.floating}
+                  variants={floatingTextVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit={{ opacity: 0, x: 20, transition: { duration: 0.2 } }} // Fade out text first
+                  // Prevent hover effect on text triggering button hover
+                  style={{ pointerEvents: 'none' }}
+                >
+                  <span>Ask me anything!</span>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            {/* The Main Bubble Icon */}
             <div className={styles.avatar}>
-              <MessageSquare className="w-6 h-6 text-white" />
+              <MessageSquare /> {/* Icon size controlled by CSS */}
             </div>
-          </motion.div>
+          </motion.button>
         )}
       </AnimatePresence>
+
       {/* Expanded Chat Interface */}
       <AnimatePresence>
         {open && (
           <motion.div
             className={styles.container}
-            initial={{ opacity: 0, scale: 0.9, y: 50 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 50 }}
-            transition={{ duration: 0.5 }}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="chatbot-heading"
           >
             {/* Chat Header */}
-            <div className={styles.header} ref={headerRef}>
-              <h3>Chat with me</h3>
-              <button className={styles.button} onClick={() => setOpen(false)}>
-                <X className="w-4 h-4" />
-              </button>
+            <header className={styles.header}>
+              <h3 id="chatbot-heading"><Bot /> Chat with Me</h3> {/* Added icon & ID */}
+              <motion.button
+                aria-label="Close Chat"
+                className={styles.closeButton} // Use specific class
+                onClick={toggleChat}
+                 whileHover={{ scale: 1.15, rotate: 90, transition: { type: 'spring', stiffness: 400, damping: 15 } }}
+                 whileTap={{ scale: 0.9 }}
+              >
+                <X /> {/* Size controlled by CSS */}
+              </motion.button>
+            </header>
+
+            {/* Messages Section - AnimatePresence handles message animations */}
+            <div className={styles.messages} ref={messagesContainerRef} aria-live="polite">
+               <AnimatePresence initial={false}>
+                {messages.map((msg, index) => (
+                  <ChatMessage
+                    key={`${msg.role}-${index}-${msg.text.slice(0, 10)}`} // More robust key
+                    message={msg.text}
+                    role={msg.role}
+                  />
+                ))}
+                {/* Show loading indicator *within* the messages flow */}
+                {loading && (
+                   <ChatMessage key="loading-indicator" role="bot" loading={true} />
+                )}
+                </AnimatePresence>
             </div>
-            {/* Messages Section */}
-            <div className={styles.messages} ref={messagesContainerRef}>
-              {messages.map((msg, index) => (
-                <ChatMessage key={index} message={msg.text} role={msg.role} />
-              ))}
-              {loading && (
-                <ChatMessage key="loading" role="bot" loading={true} />
-              )}
-            </div>
+
             {/* Input Section */}
-            <div className={styles.inputArea}>
+            <footer className={styles.inputArea}>
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") sendMessage();
-                }}
-                placeholder="Type your question..."
+                onKeyDown={handleKeyDown} // Use keydown handler
+                placeholder="Type your message..."
+                aria-label="Chat input"
+                disabled={loading} // Disable input while loading
               />
-              <button
-                className={styles.button}
+              <motion.button
+                className={styles.sendButton} // Use specific class
                 onClick={sendMessage}
                 disabled={loading}
+                aria-label="Send message"
+                whileHover={!loading ? { scale: 1.1, transition: { type: 'spring', stiffness: 400, damping: 15 } } : {}}
+                whileTap={!loading ? { scale: 0.9 } : {}}
               >
-                <Send className="w-4 h-4" />
-              </button>
-            </div>
+                <Send /> {/* Size controlled by CSS */}
+              </motion.button>
+            </footer>
           </motion.div>
         )}
       </AnimatePresence>

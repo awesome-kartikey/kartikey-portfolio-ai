@@ -104,6 +104,13 @@ export const MobileMenu = ({ isOpen, onClose }) => {
                   Skills
                 </Link>
                 <Link
+                  to="/blog" // <-- Add Blog Link
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  onClick={onClose}
+                >
+                  Blog
+                </Link>
+                <Link
                   to="/contact"
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                   onClick={onClose}

@@ -52,6 +52,12 @@ export const Navbar = () => {
               Skills
             </Link>
             <Link
+              to="/blog" // <-- Add Blog Link
+              className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-white"
+            >
+              Blog
+            </Link>
+            <Link
               to="/contact"
               className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-white"
             >

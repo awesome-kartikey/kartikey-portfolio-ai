@@ -6,6 +6,8 @@ import { About } from './pages/About';
 import { Projects } from './pages/Projects';
 import { Skills } from './pages/Skills';
 import { Contact } from './pages/Contact';
+import { BlogList } from './pages/BlogList'; // <-- Import BlogList
+import { BlogPost } from './pages/BlogPost'; // <-- Import BlogPost
 import Chatbot from './components/features/chatbot/Chatbot';
 
 function App() {
@@ -20,6 +22,8 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<BlogList />} />        {/* <-- Add Blog List Route */}
+          <Route path="/blog/:slug" element={<BlogPost />} />   {/* <-- Add Single Blog Post Route */}
         </Routes>
         <Chatbot />
       </div>
