@@ -161,7 +161,7 @@ export default function Chatbot() {
     try {
       await supabase
         .from("chat_sessions")
-        .update({ messages: updatedMessages, updated_at: new Date().toISOString() }) // Add updated timestamp
+        .update({ messages: updatedMessages }) // Add updated timestamp
         .eq("session_id", currentSessionId);
     } catch (error) {
       console.error("Error updating session messages:", error);
