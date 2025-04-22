@@ -1,51 +1,55 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Code2 } from 'lucide-react';
+import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { ExternalLink, Github, Code2 } from "lucide-react";
 
 const projects = [
   {
-    title: 'Pathfinding Algorithm Visualizer',
-    description: 'An interactive web application that visualizes various pathfinding algorithms in real-time. Users can draw walls, set start/end points, and watch as algorithms like Dijkstra and A* find the shortest path.',
-    image: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=800&h=500',
-    tags: ['React', 'TypeScript', 'Algorithms', 'CSS Grid'],
-    sourceCode: 'https://github.com/awesome-kartikey/Pathfinder_Visualizer_Kartikey',
-    liveDemo: 'https://algomaze.netlify.app/',
+    title: "Pathfinding Algorithm Visualizer",
+    description:
+      "An interactive web application that visualizes various pathfinding algorithms in real-time. Users can draw walls, set start/end points, and watch as algorithms like Dijkstra and A* find the shortest path.",
+    image: "/project-screenshots/maze-pathfinder-visualizer.png",
+    tags: ["React", "TypeScript", "Algorithms", "CSS Grid"],
+    sourceCode:
+      "https://github.com/awesome-kartikey/Pathfinder_Visualizer_Kartikey",
+    liveDemo: "https://algomaze.netlify.app/",
     features: [
-      'Multiple pathfinding algorithms',
-      'Interactive grid system',
-      'Animation controls',
-      'Maze generation'
-    ]
+      "Multiple pathfinding algorithms",
+      "Interactive grid system",
+      "Animation controls",
+      "Maze generation",
+    ],
   },
   {
-    title: 'SmartBrain',
-    description: 'A full-stack face detection application that uses machine learning to detect faces in images. Features user authentication, profile management, and API integration with Clarifai.',
-    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=800&h=500',
-    tags: ['React', 'Node.js', 'PostgreSQL', 'Machine Learning'],
-    sourceCode: 'https://github.com/awesome-kartikey/smart-brain',
-    liveDemo: 'https://intellieyes.netlify.app/',
+    title: "SmartBrain",
+    description:
+      "A full-stack face detection application that uses machine learning to detect faces in images. Features user authentication, profile management, and API integration with Clarifai.",
+    image: "/project-screenshots/smartbrain-face-detection.png",
+    tags: ["React", "Node.js", "PostgreSQL", "Machine Learning"],
+    sourceCode: "https://github.com/awesome-kartikey/smart-brain",
+    liveDemo: "https://intellieyes.netlify.app/",
     features: [
-      'Face detection API integration',
-      'User authentication',
-      'Profile ranking system',
-      'Responsive design'
-    ]
+      "Face detection API integration",
+      "User authentication",
+      "Profile ranking system",
+      "Responsive design",
+    ],
   },
   {
-    title: 'Stack Overflow Clone',
-    description: 'A comprehensive clone of Stack Overflow with features like question posting, answering, voting, and tagging. Includes markdown support and real-time notifications.',
-    image: 'https://images.unsplash.com/photo-1587620962725-abab7fe55159?auto=format&fit=crop&q=80&w=800&h=500',
-    tags: ['MongoDB', 'Express', 'React', 'Node.js'],
-    sourceCode: 'https://github.com/awesome-kartikey/Stack-Overflow-Kartikey',
-    liveDemo: 'https://stack-overflow-kartikey.netlify.app/',
+    title: "Stack Overflow Clone",
+    description:
+      "A comprehensive clone of Stack Overflow with features like question posting, answering, voting, and tagging. Includes markdown support and real-time notifications.",
+    image: "/project-screenshots/stack-overflow-clone-kartikey.png",
+    tags: ["MongoDB", "Express", "React", "Node.js"],
+    sourceCode: "https://github.com/awesome-kartikey/Stack-Overflow-Kartikey",
+    liveDemo: "https://stack-overflow-kartikey.netlify.app/",
     features: [
-      'Question & Answer system',
-      'Voting and reputation',
-      'Tag management',
-      'Search functionality'
-    ]
-  }
+      "Question & Answer system",
+      "Voting and reputation",
+      "Tag management",
+      "Search functionality",
+    ],
+  },
 ];
 
 export const Projects = () => {
@@ -55,7 +59,10 @@ export const Projects = () => {
   });
 
   return (
-    <section id="projects" className="py-20 bg-gray-50 dark:bg-gray-800 relative z-20">
+    <section
+      id="projects"
+      className="py-20 bg-gray-50 dark:bg-gray-800 relative z-20"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
