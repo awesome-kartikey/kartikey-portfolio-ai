@@ -575,7 +575,7 @@ export const projectsData = {
       title: "React Star Rating Component",
       description:
         "A simple, reusable, and interactive star rating component built with React and Vite, allowing visual rating selection.",
-      image: "/public/project-screenshots/react-star-rating.png",
+      image: "/project-screenshots/react-star-rating.png",
       tags: ["React", "Vite", "Components", "CSS", "useState", "Hooks"],
       sourceCode: "https://github.com/awesome-kartikey/react-star-rating",
       liveDemo: "",
@@ -591,7 +591,7 @@ export const projectsData = {
       title: "Robofriends (Basic)",
       description:
         'A simple React app displaying a searchable list of "robot friends" with data from JSONPlaceholder and images from RoboHash.',
-      image: "/public/project-screenshots/robofriends.png",
+      image: "/project-screenshots/robofriends.png",
       tags: ["React", "Fetch API", "API Integration", "Tachyons", "CSS"],
       sourceCode: "https://github.com/awesome-kartikey/robofriends",
       liveDemo: "",
