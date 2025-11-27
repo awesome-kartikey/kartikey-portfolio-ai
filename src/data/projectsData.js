@@ -1,6 +1,74 @@
 export const projectsData = {
   javascript: [
     {
+      priority: 1,
+      title: "ZTM Quest (Hacktoberfest 2025)",
+      description:
+        "An interactive, logic-heavy adventure game built for the ZTM Community. Focused on complex state management and branching game logic without heavy framework overhead.",
+      image: "https://placehold.co/600x400/10b981/ffffff?text=ZTM+Quest",
+      tags: [
+        "JavaScript",
+        "Game Logic",
+        "Hacktoberfest 2025",
+        "Community Project",
+        "State Management"
+      ],
+      sourceCode: "https://github.com/awesome-kartikey/ZTM-Quest",
+      liveDemo: "", // Add if deployed
+      features: [
+        "Branching narrative logic",
+        "Inventory system implementation",
+        "Optimized DOM manipulation",
+        "Community-driven feature development"
+      ],
+    },
+    {
+      priority: 1,
+      title: "Animation Nation (Hacktoberfest 2025)",
+      description:
+        "A collaborative CSS art library. Contributed complex animations like 'Pulsing Rainbow Orb' and 'Bioluminescent Jellyfish' during Hacktoberfest 2025, reviewed by ZTM maintainers.",
+      image: "https://placehold.co/600x400/8b5cf6/ffffff?text=Animation+Nation",
+      tags: [
+        "Advanced CSS",
+        "Keyframe Animation",
+        "Open Source",
+        "Hacktoberfest 2025",
+        "UI Effects"
+      ],
+      sourceCode: "https://github.com/zero-to-mastery/Animation-Nation",
+      liveDemo: "https://animation-nation.netlify.app/",
+      features: [
+        "Pure CSS complex animations",
+        "Performance-optimized rendering",
+        "Cross-browser compatibility",
+        "Visual storytelling through code"
+      ],
+    },
+    {
+      priority: 1,
+      title: "Home Bills Tracker (PWA)",
+      description:
+        "A Nov 2025 Project: A Progressive Web App built using TypeScript and React to track household finances, designed with an offline-first mobile architecture.",
+      image: "https://placehold.co/600x400/2563eb/ffffff?text=Home+Bills+Tracker",
+      tags: [
+        "React",
+        "TypeScript",
+        "PWA",
+        "Vite",
+        "Tailwind CSS",
+        "Finance"
+      ],
+      sourceCode: "https://github.com/awesome-kartikey/Home-Bills-Tracker-PWA",
+      liveDemo: "",
+      features: [
+        "Offline-first capability",
+        "Installable on mobile devices",
+        "Expense data visualization",
+        "Dark mode support"
+      ],
+    },
+    {
+      priority: 99,
       title: "Spock Rock Game",
       description:
         "A classic game of Rock Paper Scissors extended with Lizard and Spock, implemented using HTML, CSS, and vanilla JavaScript. Play against the computer!",
@@ -17,6 +85,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Quote Generator",
       description:
         "An application that generates random inspirational quotes from an API (with local fallback) and allows tweeting them.",
@@ -33,6 +102,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Picture-in-Picture Player",
       description:
         "A web app demonstrating Picture-in-Picture (PiP) for screen sharing, video files, and YouTube URLs, with custom controls and filters.",
@@ -57,6 +127,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Book Keeper",
       description:
         "A simple, clean web application to save and manage your website bookmarks locally in your browser using LocalStorage.",
@@ -73,6 +144,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "NASA APOD Viewer",
       description:
         "Displays NASA's Astronomy Picture of the Day (APOD) using the NASA API, with features for loading more images and saving favorites.",
@@ -96,6 +168,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Animated Navigation Nation",
       description:
         "A modern, elegant, full-screen navigation menu component featuring smooth slide-in/out and staggered link animations.",
@@ -118,6 +191,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Infinity Scroll Gallery",
       description:
         "A photo gallery using the Unsplash API that implements infinite scrolling, loading new images automatically as the user scrolls down.",
@@ -134,6 +208,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Custom Countdown Timer",
       description:
         "A visually appealing web app to create custom countdown timers to any future date, with persistence using LocalStorage and a video background.",
@@ -151,6 +226,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Music Player",
       description:
         "A functional web-based music player with standard controls (play, pause, next, previous), progress bar, and dynamic UI updates.",
@@ -167,6 +243,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Web Calculator",
       description:
         "A sleek, simple, and functional web-based calculator for standard arithmetic operations, built with vanilla HTML, CSS, and JavaScript.",
@@ -189,6 +266,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Splash Page Demo",
       description:
         "A simple, static splash page for a conceptual mobile app, demonstrating basic HTML/CSS layout and JS background toggle.",
@@ -204,6 +282,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Light/Dark Mode Toggle",
       description:
         "A template demonstrating light and dark theme switching using CSS custom properties and JavaScript, saving preference via LocalStorage.",
@@ -220,6 +299,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Form Validator",
       description:
         "A client-side form validator demonstrating HTML5 constraint validation and JavaScript enhancements for user feedback.",
@@ -242,6 +322,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Joke Teller",
       description:
         "A fun web application that tells programming jokes using the JokeAPI and reads them aloud using the VoiceRSS Text-to-Speech API.",
@@ -264,6 +345,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Paint Clone",
       description:
         "A web-based paint application clone with drawing, erasing, color/size selection, local storage save/load, and image download.",
@@ -287,6 +369,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Pong Game Clone",
       description:
         "A classic Pong game implementation playable in the browser (Player vs. Computer) with score tracking and increasing ball speed.",
@@ -310,6 +393,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Math Sprint Game",
       description:
         "A fast-paced math quiz game testing arithmetic speed. Choose question count, timed rounds, best score tracking via LocalStorage.",
@@ -333,6 +417,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Animated Template (AOS)",
       description:
         "A modern, responsive, single-page HTML template featuring smooth scroll animations powered by AOS.js and styled with Tailwind CSS.",
@@ -357,6 +442,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 99,
       title: "Drag and Drop Kanban Board",
       description:
         "An intuitive Kanban board web app with drag-and-drop functionality, inline editing, and local storage persistence.",
@@ -383,6 +469,7 @@ export const projectsData = {
   ],
   react: [
     {
+      priority: 21,
       title: "Taskmate To-Do App",
       description:
         "A simple React To-Do list application allowing task management (add, edit, delete) with theme customization and localStorage persistence.",
@@ -406,6 +493,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Cinemate Movie Discovery",
       description:
         "A movie discovery app built with React and Tailwind CSS, utilizing the TMDB API to browse popular, top-rated, and upcoming movies.",
@@ -422,6 +510,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Shopmate (Basic Cart Assignment)",
       description:
         "A basic React shopping cart UI demonstrating product listing and a static cart page using React Router.",
@@ -438,6 +527,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Shopmate (Context & Reducer Cart)",
       description:
         "A simple shopping cart app using React Context API and useReducer for state management to handle adding/removing items.",
@@ -461,6 +551,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Shopmate (Redux Cart)",
       description:
         "A shopping cart application demonstrating state management using Redux Toolkit for adding/removing items and dynamic updates.",
@@ -483,6 +574,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Codebook E-Commerce",
       description:
         "A frontend e-commerce app for eBooks using React & Tailwind. Features product filtering, sorting, cart, mock checkout, and user dashboard.",
@@ -509,6 +601,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Word Counter & Joke App",
       description:
         "A React app providing a word/character counter tool and a separate page displaying random Chuck Norris jokes from an API.",
@@ -525,6 +618,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Monsters Rolodex",
       description:
         'A React app fetching users ("monsters") from an API, displaying them as cards with RoboHash images, and providing real-time search.',
@@ -548,6 +642,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Gym Exercise Finder",
       description:
         "A React app using Material UI to find gym exercises via RapidAPI (ExerciseDB & YouTube). Browse by body part, search, view details/GIFs/videos.",
@@ -572,6 +667,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "React Star Rating Component",
       description:
         "A simple, reusable, and interactive star rating component built with React and Vite, allowing visual rating selection.",
@@ -588,6 +684,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Robofriends (Basic)",
       description:
         'A simple React app displaying a searchable list of "robot friends" with data from JSONPlaceholder and images from RoboHash.',
@@ -604,6 +701,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 11,
       title: "Twitter Clone Frontend",
       description:
         "A frontend clone of Twitter using Next.js, GraphQL, React Query, and Tailwind CSS. Handles Google Auth, tweet feed, posting (with images), profiles, following.",
@@ -631,6 +729,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Maze Pathfinder Visualizer",
       description:
         "An interactive maze generator (Recursive Backtracking) and pathfinding algorithm visualizer (BFS, DFS) built using React and Vite.",
@@ -656,6 +755,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Vue Image Filter Project",
       description:
         "A Vue 3 app allowing image upload, applying filters (via Photon WASM), and downloading the result. Built with Vite, TypeScript, Pinia, Tailwind.",
@@ -683,6 +783,30 @@ export const projectsData = {
   ],
   backend: [
     {
+      priority: 1,
+      title: "ZTM URL Shortener (Rust Edition)",
+      description:
+        "A high-performance URL shortening service built with Rust and Axum. Contributed 13+ commits during Hacktoberfest 2025, refactoring the database layer and implementing base URL configurations.",
+      image: "https://placehold.co/600x400/b7410e/ffffff?text=Rust+URL+Shortener", // Rust orange color
+      tags: [
+        "Rust",
+        "Axum",
+        "PostgreSQL",
+        "Hacktoberfest 2025",
+        "Open Source",
+        "Backend System Design"
+      ],
+      sourceCode: "https://github.com/zero-to-mastery/url-shortener-ztm",
+      liveDemo: "",
+      features: [
+        "High-concurrency handling with Rust",
+        "Database layer refactoring for efficiency",
+        "Admin UI logic implementation",
+        "Contribution to Zero To Mastery Open Source"
+      ],
+    },
+    {
+      priority: 21,
       title: "Discord Weather/Astro Bot",
       description:
         "A Discord bot providing weather forecasts and astronomical data (sunrise/sunset) using slash commands and the WeatherAPI.com.",
@@ -706,6 +830,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Kepler Habitable Planets Finder",
       description:
         "A Node.js script that analyzes NASA Kepler data (CSV) to identify potentially habitable exoplanets based on specific criteria.",
@@ -721,6 +846,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Short URL Service (Node.js)",
       description:
         "A Node.js/Express/MongoDB application for shortening URLs, with user authentication, redirection, and click tracking.",
@@ -746,6 +872,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 11,
       title: "Stack Overflow Clone Backend",
       description:
         "Backend API service for a Stack Overflow clone using Node.js, Express, MongoDB. Provides endpoints for auth, questions, answers, and profiles.",
@@ -770,6 +897,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 11,
       title: "Twitter Clone Backend Server",
       description:
         "A GraphQL backend for a Twitter clone using Node.js, TypeScript, PostgreSQL, Prisma, Redis, S3. Handles auth, tweets, follows, image uploads.",
@@ -804,6 +932,7 @@ export const projectsData = {
   ],
   fullstack: [
     {
+      priority: 11,
       title: "AWS Serverless Distance Calculator",
       description:
         "A web app using AWS serverless tech (API Gateway, Lambda, DynamoDB) to calculate the great-circle distance between two points.",
@@ -830,6 +959,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 11,
       title: "Crwn Clothing E-commerce",
       description:
         "A full-stack e-commerce app (React/Redux frontend, Firebase backend) for clothing. Features browsing, cart, auth (Email/Google), Stripe payments.",
@@ -859,6 +989,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 1,
       title: "Kartikey Portfolio with AI Chatbot",
       description:
         "An interactive developer portfolio (React/Vite/Tailwind) with animations, blog integration (Hashnode), contact form (EmailJS), and an AI chatbot (Gemini via Supabase).",
@@ -890,6 +1021,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "WriteNode Blogging App",
       description:
         "A lightweight React blogging app using Firebase (Auth/Firestore). Users can log in via Google, create posts, and delete their own posts.",
@@ -915,6 +1047,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 21,
       title: "Multiplayer Pong Game",
       description:
         "A real-time multiplayer Pong game built with Node.js, Express, Socket.IO, and HTML Canvas. Features simple matchmaking.",
@@ -941,6 +1074,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 11,
       title: "NASA Mission Control Dashboard",
       description:
         "A full-stack app to explore habitable planets (Kepler data), schedule/view rocket launches (including SpaceX data), and abort missions, with a sci-fi UI.",
@@ -969,6 +1103,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 1,
       title: "Notion Clone (Jotion)",
       description:
         "A fullstack Notion clone using Next.js, Convex (real-time DB), Clerk (auth), EdgeStore (files), BlockNote (editor). Features nested docs, publishing, search.",
@@ -1000,6 +1135,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 11,
       title: "SmartBrain Face Detection",
       description:
         "A full-stack app (React frontend, Node/Express/PostgreSQL backend) that detects faces in images via URL using the Clarifai API and tracks user submissions.",
@@ -1027,6 +1163,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 1,
       title: "SpeakEasyAI (Video/Audio to Blog)",
       description:
         "An AI-powered SaaS app (Next.js 14, OpenAI, Stripe, Clerk, NeonDB, UploadThing) that converts video/audio files into SEO-friendly blog posts.",
@@ -1060,6 +1197,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 11,
       title: "Stack Overflow Clone (Kartikey)",
       description:
         "A full-stack Stack Overflow clone using React/Redux frontend and Node/Express/MongoDB backend. Features auth, Q&A, voting, tags, profiles.",
@@ -1089,6 +1227,7 @@ export const projectsData = {
       ],
     },
     {
+      priority: 1,
       title: "Dev Overflow (Stack Overflow Clone Next.js 14)",
       description:
         "A modern Stack Overflow clone using Next.js 14, TypeScript, MongoDB, Clerk Auth, TinyMCE editor, AI answer generation (OpenAI), voting, reputation, collections.",

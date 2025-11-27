@@ -13,11 +13,20 @@ export const ProjectCategories = () => {
 
   // Get all projects or filter by category
   const getFilteredProjects = () => {
+    let projects = [];
     if (activeCategory === 'all') {
       // Combine all projects from all categories
-      return Object.values(projectsData).flat();
+      projects = Object.values(projectsData).flat();
+    } else {
+      projects = projectsData[activeCategory] || [];
     }
-    return projectsData[activeCategory] || [];
+
+    // Sort by priority (ascending), default to 999 if no priority
+    return projects.sort((a, b) => {
+      const priorityA = a.priority || 999;
+      const priorityB = b.priority || 999;
+      return priorityA - priorityB;
+    });
   };
 
   const filteredProjects = getFilteredProjects();
