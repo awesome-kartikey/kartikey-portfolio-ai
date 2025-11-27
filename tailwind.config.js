@@ -31,35 +31,6 @@ export default {
           foreground: 'rgb(var(--color-card-foreground) / <alpha-value>)',
         },
       },
-      fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-        poppins: ['Poppins', 'sans-serif'],
-      },
-      animation: {
-        gradient: 'gradient 8s linear infinite',
-        'fade-in': 'fade-in 0.5s ease-in-out forwards',
-      },
-      keyframes: {
-        gradient: {
-          '0%, 100%': {
-            'background-size': '200% 200%',
-            'background-position': 'left center',
-          },
-          '50%': {
-            'background-size': '200% 200%',
-            'background-position': 'right center',
-          },
-        },
-        'fade-in': {
-          from: { opacity: 0 },
-          to: { opacity: 1 },
-        },
-      },
-      borderRadius: {
-        lg: 'var(--radius)',
-        md: 'calc(var(--radius) - 2px)',
-        sm: 'calc(var(--radius) - 4px)',
-      },
     },
   },
   plugins: [
