@@ -35,7 +35,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          Full Stack Web Developer
+          Full Stack Developer & AI Engineer
         </motion.h2>
 
         <motion.h1
@@ -53,7 +53,7 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          I build modern, responsive web applications with React, Node.js, and other cutting-edge technologies. Let's create something amazing together.
+          Building scalable SaaS applications with Next.js 14, AWS, and OpenAI. 1+ year of experience shipping modern, production-ready web applications.
         </motion.p>
 
         <motion.div

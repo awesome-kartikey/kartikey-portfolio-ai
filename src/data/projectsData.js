@@ -1106,7 +1106,7 @@ export const projectsData = {
       priority: 1,
       title: "Notion Clone (Jotion)",
       description:
-        "A fullstack Notion clone using Next.js, Convex (real-time DB), Clerk (auth), EdgeStore (files), BlockNote (editor). Features nested docs, publishing, search.",
+        "Leveraged Convex for reactive database capabilities and optimistic UI updates, enabling sub-millisecond collaborative syncing without page reloads. A fullstack Notion clone with real-time database, authentication, and rich text editing.",
       image: "/project-screenshots/notion-clone-jotion.png",
       tags: [
         "Next.js",
@@ -1166,7 +1166,7 @@ export const projectsData = {
       priority: 1,
       title: "SpeakEasyAI (Video/Audio to Blog)",
       description:
-        "An AI-powered SaaS app (Next.js 14, OpenAI, Stripe, Clerk, NeonDB, UploadThing) that converts video/audio files into SEO-friendly blog posts.",
+        "Architected an asynchronous ingestion pipeline using AWS S3 signed URLs and background webhooks to prevent browser timeouts when processing large video files via OpenAI Whisper. An AI-powered SaaS app converting video/audio into SEO-friendly blog posts with Next.js 14, Stripe subscriptions, and NeonDB.",
       image: "/project-screenshots/speakeasyai-videoaudio-to-blog.png",
       tags: [
         "Next.js",
@@ -1230,7 +1230,7 @@ export const projectsData = {
       priority: 1,
       title: "Dev Overflow (Stack Overflow Clone Next.js 14)",
       description:
-        "A modern Stack Overflow clone using Next.js 14, TypeScript, MongoDB, Clerk Auth, TinyMCE editor, AI answer generation (OpenAI), voting, reputation, collections.",
+        "Implemented global search using MongoDB aggregation pipelines and optimized SEO using Next.js Server Actions, ensuring sub-second retrieval for complex queries. A modern Stack Overflow clone with AI answer generation, voting, reputation system, and collections.",
       image:
         "/project-screenshots/dev-overflow-stack-overflow-clone-nextjs-14.png",
       tags: [

@@ -49,20 +49,20 @@ export const About = () => {
             <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Full Stack Developer with a Passion for Creating Impactful Web Applications
             </h3>
-            
+
             <p className="text-gray-600 dark:text-gray-300">
-              I'm a dedicated full-stack developer with expertise in modern web technologies. My journey in software development began 5 years ago, and I've been passionate about creating elegant, user-friendly applications ever since.
+              I'm a software engineer with a passion for building systems that scale. My journey in software development began 5 years ago, and after graduating in 2022, I transitioned from a generalist web developer to specializing in Next.js and AI integrations. Over the past year, I've focused on shipping production-ready SaaS applications.
             </p>
-            
+
             <p className="text-gray-600 dark:text-gray-300">
-              My approach combines technical excellence with a deep understanding of user needs. I believe that the best applications are those that not only function flawlessly but also provide an intuitive and enjoyable user experience.
+              When I'm not pushing code, I'm usually grinding LeetCode (650+ solved, Top 8% Global) or exploring new backend patterns in Node.js. I believe that the best applications are those that not only function flawlessly but also provide an intuitive and enjoyable user experience.
             </p>
-            
+
             <div className="pt-4">
               <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
                 What I Bring to the Table
               </h4>
-              
+
               <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                 <li className="flex items-start">
                   <span className="text-blue-600 dark:text-blue-400 mr-2">•</span>

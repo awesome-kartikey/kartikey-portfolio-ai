@@ -206,18 +206,26 @@ export const DetailedAbout = () => {
             <div className="space-y-8 border-l-2 border-gray-200 dark:border-gray-700 pl-6 ml-2">
               <div className="relative">
                 <span className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-green-500 ring-4 ring-white dark:ring-gray-900"></span>
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">AI Model Trainer</h4>
-                <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">Remotasks • Remote • Nov 2023 – May 2024</p>
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">Independent Full Stack Engineer</h4>
+                <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">Self-Employed • Remote • Jun 2024 – Present</p>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Improved AI model performance by 30% through structured evaluation of 1,000+ responses and engineered 200+ coding prompts for RLHF.
+                  Operating as a self-employed engineer, architecting and deploying complex SaaS solutions. Focused on Next.js 14 server-side rendering, database schema design (PostgreSQL/MongoDB), and integrating LLMs (Whisper/GPT) into consumer applications. Actively contributing to open-source libraries to improve ecosystem performance.
+                </p>
+              </div>
+              <div className="relative">
+                <span className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-purple-500 ring-4 ring-white dark:ring-gray-900"></span>
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">AI Code Specialist</h4>
+                <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">Scale AI (Remotasks) • Remote • Nov 2023 – May 2024</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Specialized in RLHF (Reinforcement Learning from Human Feedback) for code generation models. Engineered complex Python/JS prompts to stress-test LLM logic and optimized training data, resulting in a 30% improvement in model syntax accuracy.
                 </p>
               </div>
               <div className="relative">
                 <span className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-white dark:ring-gray-900"></span>
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">Web Development Intern</h4>
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">SDE Intern</h4>
                 <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">Yougetplaced • Remote • Sep 2022 – Dec 2022</p>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Built a MERN-stack Q&A platform (Stack Overflow Clone) and optimized MongoDB schemas for efficient querying.
+                  Developed the frontend and backend for a MERN-based Q&A platform. Optimized API response times by 40% through MongoDB indexing and efficient state management.
                 </p>
               </div>
             </div>
