@@ -2,12 +2,18 @@
 import React, { forwardRef } from "react";
 import ReactMarkdown from "react-markdown";
 import { motion } from "framer-motion";
-import { Bot } from "lucide-react"; // Use Bot icon for consistency
+import { Bot } from "lucide-react";
 import styles from "./chatbot.module.css";
 
 // Updated loading animation component
 function ChatbotLoadingAnimation() {
-  return <div className={styles.loadingSpinner}></div>; // Use the new spinner style
+  return (
+    <div className={styles.loadingSpinner}>
+      <div className={styles.loadingDot}></div>
+      <div className={styles.loadingDot}></div>
+      <div className={styles.loadingDot}></div>
+    </div>
+  );
 }
 
 const ChatMessage = forwardRef(({ message, role, loading }, ref) => {
@@ -17,18 +23,18 @@ const ChatMessage = forwardRef(({ message, role, loading }, ref) => {
   const messageVariants = {
     hidden: {
       opacity: 0,
-      y: 20, // Start slightly lower
-      scale: 0.95, // Start slightly smaller
+      y: 20,
+      scale: 0.95,
     },
     visible: {
       opacity: 1,
       y: 0,
       scale: 1,
       transition: {
-        type: "spring", // Use spring animation
+        type: "spring",
         stiffness: 200,
         damping: 20,
-        duration: 0.4, // Duration hint (spring calculates actual)
+        duration: 0.4,
       },
     },
   };
@@ -40,12 +46,12 @@ const ChatMessage = forwardRef(({ message, role, loading }, ref) => {
       variants={messageVariants}
       initial="hidden"
       animate="visible"
-      layout // Helps animate position changes smoothly if messages reorder (optional)
+      layout
     >
       {/* Bot Avatar */}
-      {role === "bot" && !loading && ( // Show avatar only for non-loading bot messages
+      {role === "bot" && !loading && (
         <div className={styles.messageAvatar}>
-          <Bot className="w-4 h-4 text-white" /> {/* Consistent Bot icon */}
+          <Bot className="w-4 h-4 text-white" />
         </div>
       )}
 
@@ -54,11 +60,9 @@ const ChatMessage = forwardRef(({ message, role, loading }, ref) => {
         {loading ? (
           <ChatbotLoadingAnimation />
         ) : (
-          // Render markdown, customize components if needed (e.g., links)
           <ReactMarkdown
             components={{
-              a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}/>,
-              // Add more customizations here if needed (e.g., code blocks)
+              a: ({ node, ...props }) => <a {...props} target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }} />,
             }}
           >
             {message}
@@ -69,7 +73,6 @@ const ChatMessage = forwardRef(({ message, role, loading }, ref) => {
   );
 });
 
-// Add display name for better debugging
 ChatMessage.displayName = "ChatMessage";
 
 export default ChatMessage;
