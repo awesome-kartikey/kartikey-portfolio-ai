@@ -28,3 +28,7 @@ supabase/.temp/cli-latest
 
 # Environment variables
 .env
+
+# Misc
+*.bak
+Thumbs.db
