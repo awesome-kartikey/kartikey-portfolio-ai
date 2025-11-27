@@ -1,6 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import {
+  Trophy,
+  GitCommit,
+  Brain,
+  Code2,
+  Cpu,
+  BookOpen,
+  Activity,
+  Heart
+} from "lucide-react";
 
 export const DetailedAbout = () => {
   const [ref, inView] = useInView({
@@ -8,280 +18,181 @@ export const DetailedAbout = () => {
     threshold: 0.1,
   });
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-800 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+          className="space-y-16"
         >
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            My Journey
-          </h2>
-          {/* Updated Intro from Resume Summary */}
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Full Stack Developer proficient in JavaScript, TypeScript, React,
-            Node.js, and Python. Experienced in building MERN stack applications
-            and enhancing AI model performance through prompt engineering and
-            evaluation. Seeking to leverage expertise in developing
-            user-centric, scalable web solutions and AI-driven tools.
-          </p>
-        </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Education Section - Updated */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
-          >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Education & Certifications
-            </h3>
-            <div className="space-y-6">
-              <div className="border-l-4 border-blue-500 pl-4 py-1">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  Bachelor of Computer Applications
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 mt-1">
-                  Indira Gandhi National Open University, Jul 2018 – Jun 2022
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 mt-2">
-                  Relevant Coursework: Data Structures, Algorithms, OOP,
-                  Software Engineering, Computer Networks, Database Management.
-                  Key Project: Cineplex (Java/JSP MVC movie booking system).
-                </p>
-              </div>
-              <div className="border-l-4 border-blue-500 pl-4 py-1">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  Zero To Mastery Academy
-                </h4>
-                {/* <p className="text-gray-600 dark:text-gray-300 mt-1">
-                  Online Platform
-                </p> */}
-                <p className="text-gray-600 dark:text-gray-300 mt-2">
-                  Completed courses including Complete Web Developer, Advanced
-                  JavaScript Concepts, and Node.js Developer.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Work Experience Section - Updated */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
-          >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Experience
-            </h3>
-            <div className="space-y-6">
-              <div className="border-l-4 border-green-500 pl-4 py-1">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  AI Model Trainer
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 mt-1">
-                  Remotasks (Remote), Nov 2023 – May 2024
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 mt-2">
-                  Improved AI model performance by 30% via evaluation of 1000+
-                  responses. Engineered 200+ complex prompts, enhancing code
-                  generation accuracy by 25%. Collaborated on prompt strategies,
-                  boosting model versatility by 40%.
-                </p>
-              </div>
-              <div className="border-l-4 border-green-500 pl-4 py-1">
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white">
-                  Web Development Intern
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 mt-1">
-                  Yougetplaced (Remote), Sep 2022 – Dec 2022
-                </p>
-                <p className="text-gray-600 dark:text-gray-300 mt-2">
-                  Built a MERN stack Stack Overflow clone. Developed RESTful
-                  APIs (Node.js/Express) and a responsive React frontend.
-                  Implemented MongoDB schemas using Mongoose.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Skills & Expertise Section - Updated */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300 md:col-span-2" // Span across two columns on medium screens
-          >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-              Technical Skills
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {" "}
-              {/* Use 3 columns inside */}
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Frontend
-                </h4>
-                <ul className="space-y-1 text-gray-600 dark:text-gray-300">
-                  {[
-                    "React.js",
-                    "Next.js 14",
-                    "Redux",
-                    "Tailwind CSS",
-                    "Shadcn UI",
-                    "Material UI",
-                    "HTML5",
-                    "CSS3",
-                  ].map((skill) => (
-                    <li key={skill} className="flex items-center">
-                      <span className="text-blue-600 dark:text-blue-400 mr-2">
-                        •
-                      </span>
-                      <span>{skill}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  Backend & Databases
-                </h4>
-                <ul className="space-y-1 text-gray-600 dark:text-gray-300">
-                  {[
-                    "Node.js",
-                    "Express.js",
-                    "REST APIs",
-                    "GraphQL (Apollo)",
-                    "Convex",
-                    "Prisma",
-                    "Server Actions",
-                    "PostgreSQL",
-                    "MongoDB",
-                    "Redis",
-                  ].map((skill) => (
-                    <li key={skill} className="flex items-center">
-                      <span className="text-green-600 dark:text-green-400 mr-2">
-                        •
-                      </span>
-                      <span>{skill}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  AI, DevOps & Tools
-                </h4>
-                <ul className="space-y-1 text-gray-600 dark:text-gray-300">
-                  {[
-                    "JavaScript (ES6+)",
-                    "TypeScript",
-                    "Python",
-                    "OpenAI API (GPT, Whisper)",
-                    "Llama",
-                    "Groq",
-                    "Prompt Engineering",
-                    "Git/GitHub",
-                    "Docker",
-                    "Vercel",
-                    "AWS (S3, Lambda)",
-                    "Clerk Auth",
-                    "Stripe",
-                    "Jest",
-                    "Agile/Scrum",
-                  ].map((skill) => (
-                    <li key={skill} className="flex items-center">
-                      <span className="text-yellow-600 dark:text-yellow-400 mr-2">
-                        •
-                      </span>
-                      <span>{skill}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Personal Interests Section - Updated */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
-          >
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-              Personal Interests
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              Outside of technology, I enjoy activities that promote well-being
-              and continuous growth:
+          {/* Header */}
+          <motion.div variants={itemVariants} className="text-center">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Engineering Journey
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              From solving complex algorithmic problems to building scalable AI SaaS products.
             </p>
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <span className="text-purple-600 dark:text-purple-400 mr-2 text-xl">
-                  •
-                </span>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    Fitness
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Staying active through Jump Rope, Gym sessions, and Yoga.
-                  </p>
+          </motion.div>
+
+          {/* Stats Grid - LeetCode & GitHub */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* LeetCode Section */}
+            <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-8 border-l-4 border-yellow-500">
+              <div className="flex items-center mb-6">
+                <Trophy className="w-8 h-8 text-yellow-500 mr-3" />
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">DSA & Problem Solving</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2">
+                  <span className="text-gray-600 dark:text-gray-300">Global Rating</span>
+                  <span className="font-bold text-gray-900 dark:text-white text-lg">1,784 (Top 8%)</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2">
+                  <span className="text-gray-600 dark:text-gray-300">Problems Solved</span>
+                  <span className="font-bold text-gray-900 dark:text-white">650+</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2">
+                  <span className="text-gray-600 dark:text-gray-300">Active Streak</span>
+                  <span className="font-bold text-green-600 dark:text-green-400">360+ Days</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-300">Achievements</span>
+                  <span className="font-bold text-gray-900 dark:text-white">500 Days Badge</span>
                 </div>
               </div>
-              <div className="flex items-start">
-                <span className="text-purple-600 dark:text-purple-400 mr-2 text-xl">
-                  •
-                </span>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    Reading
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Exploring ideas and knowledge through Non-fiction and
-                    Spirtual books.
-                  </p>
+              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 italic">
+                Completed the full AlgoMap DSA Sheet (300+ problems). Strong command of Graphs, DP, and Heaps.
+              </p>
+            </motion.div>
+
+            {/* GitHub & Open Source Section */}
+            <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-8 border-l-4 border-purple-500">
+              <div className="flex items-center mb-6">
+                <GitCommit className="w-8 h-8 text-purple-500 mr-3" />
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">Open Source & Activity</h3>
+              </div>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2">
+                  <span className="text-gray-600 dark:text-gray-300">2025 Commits</span>
+                  <span className="font-bold text-gray-900 dark:text-white">250+</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2">
+                  <span className="text-gray-600 dark:text-gray-300">Key Contributions</span>
+                  <span className="font-bold text-gray-900 dark:text-white">Animation Nation</span>
+                </div>
+                <div className="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2">
+                  <span className="text-gray-600 dark:text-gray-300">Hacktoberfest</span>
+                  <span className="font-bold text-green-600 dark:text-green-400">Active Contributor</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-600 dark:text-gray-300">Focus</span>
+                  <span className="font-bold text-gray-900 dark:text-white">UI/UX & Frontend Logic</span>
                 </div>
               </div>
-              <div className="flex items-start">
-                <span className="text-purple-600 dark:text-purple-400 mr-2 text-xl">
-                  •
-                </span>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    Anime
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Appreciating Japanese animation for storytelling and art
-                    style.
-                  </p>
+              <p className="mt-4 text-sm text-gray-500 dark:text-gray-400 italic">
+                Maintains multiple production repositories including SpeakEasyAI and Dev Overflow.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Philosophy Section */}
+          <motion.div variants={itemVariants} className="bg-blue-50 dark:bg-gray-900/50 rounded-2xl p-8 md:p-12 text-center border border-blue-100 dark:border-gray-700">
+            <Heart className="w-10 h-10 text-red-500 mx-auto mb-4" />
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Engineering Philosophy</h3>
+            <blockquote className="text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-200 italic mb-6">
+              "I treat coding as mindful creation — a process rooted in clarity, intent, and craftsmanship."
+            </blockquote>
+            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Inspired by the Bhagavad Gita’s teachings on disciplined action, I believe in building tools that reduce friction, increase human creativity, and stand the test of time through clean architecture.
+            </p>
+          </motion.div>
+
+          {/* Updated Technical Skills */}
+          <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-8">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+              Technical Arsenal
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div>
+                <div className="flex items-center mb-3">
+                  <Code2 className="w-5 h-5 text-blue-500 mr-2" />
+                  <h4 className="font-bold text-gray-900 dark:text-white">Languages & Frontend</h4>
                 </div>
+                <ul className="text-gray-600 dark:text-gray-300 space-y-1 text-sm">
+                  <li>JavaScript (ES6+) & TypeScript</li>
+                  <li>React.js & Next.js 14</li>
+                  <li>Redux Toolkit & Zustand</li>
+                  <li>Tailwind CSS & Shadcn UI</li>
+                </ul>
               </div>
-              <div className="flex items-start">
-                <span className="text-purple-600 dark:text-purple-400 mr-2 text-xl">
-                  •
-                </span>
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    Continuous Learning
-                  </h4>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    Passionate about constantly acquiring new skills and
-                    knowledge, especially in the tech field.
-                  </p>
+              <div>
+                <div className="flex items-center mb-3">
+                  <Brain className="w-5 h-5 text-purple-500 mr-2" />
+                  <h4 className="font-bold text-gray-900 dark:text-white">AI & Backend</h4>
                 </div>
+                <ul className="text-gray-600 dark:text-gray-300 space-y-1 text-sm">
+                  <li>Node.js & Express</li>
+                  <li>OpenAI API (GPT-4, Whisper)</li>
+                  <li>Groq & LangChain</li>
+                  <li>PostgreSQL (NeonDB) & MongoDB</li>
+                </ul>
+              </div>
+              <div>
+                <div className="flex items-center mb-3">
+                  <Cpu className="w-5 h-5 text-green-500 mr-2" />
+                  <h4 className="font-bold text-gray-900 dark:text-white">System & DevOps</h4>
+                </div>
+                <ul className="text-gray-600 dark:text-gray-300 space-y-1 text-sm">
+                  <li>Docker & CI/CD Actions</li>
+                  <li>AWS (S3, Lambda)</li>
+                  <li>System Design (Caching, Rate Limiting)</li>
+                  <li>Agile & TDD</li>
+                </ul>
               </div>
             </div>
           </motion.div>
-        </div>
+
+          {/* Experience Section (Condensed) */}
+          <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-8">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Experience</h3>
+            <div className="space-y-8 border-l-2 border-gray-200 dark:border-gray-700 pl-6 ml-2">
+              <div className="relative">
+                <span className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-green-500 ring-4 ring-white dark:ring-gray-900"></span>
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">AI Model Trainer</h4>
+                <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">Remotasks • Remote • Nov 2023 – May 2024</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Improved AI model performance by 30% through structured evaluation of 1,000+ responses and engineered 200+ coding prompts for RLHF.
+                </p>
+              </div>
+              <div className="relative">
+                <span className="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-blue-500 ring-4 ring-white dark:ring-gray-900"></span>
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">Web Development Intern</h4>
+                <p className="text-sm text-blue-600 dark:text-blue-400 mb-1">Yougetplaced • Remote • Sep 2022 – Dec 2022</p>
+                <p className="text-gray-600 dark:text-gray-300">
+                  Built a MERN-stack Q&A platform (Stack Overflow Clone) and optimized MongoDB schemas for efficient querying.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+        </motion.div>
       </div>
     </section>
   );
