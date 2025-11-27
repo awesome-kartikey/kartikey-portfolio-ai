@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kartikey.is-a.dev/sitemap.xml

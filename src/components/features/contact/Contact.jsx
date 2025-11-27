@@ -40,7 +40,7 @@ export const Contact = () => {
         isError: false,
         isSuccess: false
       });
-      
+
       // Prepare template parameters for EmailJS
       const templateParams = {
         from_name: data.name,
@@ -50,14 +50,14 @@ export const Contact = () => {
         to_name: 'Kartikey Kumar',
         reply_to: data.email
       };
-      
+
       // Send email using EmailJS service
       const result = await sendEmail(templateParams);
-      
+
       if (result.success) {
         // Reset form after successful submission
         reset();
-        
+
         // Show success message
         setStatus({
           message: 'Message sent successfully!',
@@ -111,7 +111,7 @@ export const Contact = () => {
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-6">
                 Contact Information
               </h3>
-              
+
               <div className="space-y-4">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
@@ -122,7 +122,7 @@ export const Contact = () => {
                     <p className="text-sm text-gray-600 dark:text-gray-300">kartikeykumar.onglobe@gmail.com</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <Phone className="w-6 h-6 text-blue-600 dark:text-blue-400" />
@@ -132,7 +132,7 @@ export const Contact = () => {
                     <p className="text-sm text-gray-600 dark:text-gray-300">+91-7060758948</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
                     <MapPin className="w-6 h-6 text-blue-600 dark:text-blue-400" />
@@ -144,7 +144,7 @@ export const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
                 Connect With Me
@@ -187,14 +187,18 @@ export const Contact = () => {
                   className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                    <path d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12 6.628 0 12-5.373 12-12 0-6.627-5.372-12-12-12zm.029 18.88a7.947 7.947 0 01-3.76-.954l-4.17 1.093 1.112-4.063A7.935 7.935 0 014.2 12.016c0-4.373 3.556-7.93 7.929-7.93 4.374 0 7.93 3.557 7.93 7.93 0 4.374-3.556 7.93-7.93 7.93z" fillRule="evenodd" clipRule="evenodd"/>
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                    <path d="M12 0C5.373 0 0 5.373 0 12c0 6.628 5.373 12 12 12 6.628 0 12-5.373 12-12 0-6.627-5.372-12-12-12zm.029 18.88a7.947 7.947 0 01-3.76-.954l-4.17 1.093 1.112-4.063A7.935 7.935 0 014.2 12.016c0-4.373 3.556-7.93 7.929-7.93 4.374 0 7.93 3.557 7.93 7.93 0 4.374-3.556 7.93-7.93 7.93z" fillRule="evenodd" clipRule="evenodd" />
                   </svg>
                 </a>
               </div>
             </div>
+            <div className="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-300 mt-4 mb-4 ">
+              <p>© {new Date().getFullYear()} Kartikey Kumar. All rights reserved.</p>
+              <p>Designed & Engineered in Roorkee, India</p>
+            </div>
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -228,7 +232,7 @@ export const Contact = () => {
                       <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.name.message}</p>
                     )}
                   </div>
-                  
+
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                       Email
@@ -251,7 +255,7 @@ export const Contact = () => {
                     )}
                   </div>
                 </div>
-                
+
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Subject
@@ -273,7 +277,7 @@ export const Contact = () => {
                     <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.subject.message}</p>
                   )}
                 </div>
-                
+
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Message
@@ -295,7 +299,7 @@ export const Contact = () => {
                     <p className="mt-1 text-sm text-red-600 dark:text-red-400">{errors.message.message}</p>
                   )}
                 </div>
-                
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -310,7 +314,7 @@ export const Contact = () => {
                     </>
                   )}
                 </button>
-                
+
                 {status.message && (
                   <div className={`mt-4 p-3 rounded-md ${status.isError ? 'bg-red-50 text-red-700 dark:bg-red-900/30 dark:text-red-400' : 'bg-green-50 text-green-700 dark:bg-green-900/30 dark:text-green-400'}`}>
                     {status.message}

@@ -1,15 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar, ScrollToTop } from './components/layout';
-import { Home } from './pages/Home';
-import { About } from './pages/About';
-import { Projects } from './pages/Projects';
-import { Skills } from './pages/Skills';
-import { Contact } from './pages/Contact';
-import { BlogList } from './pages/BlogList'; // <-- Import BlogList
-import { BlogPost } from './pages/BlogPost'; // <-- Import BlogPost
+import { Home, About, Projects, Skills, Contact, BlogList, BlogPost, NotFound } from './pages';
 import Chatbot from './components/features/chatbot/Chatbot';
-
 function App() {
   return (
     <Router>
@@ -24,6 +17,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/blog" element={<BlogList />} />        {/* <-- Add Blog List Route */}
           <Route path="/blog/:slug" element={<BlogPost />} />   {/* <-- Add Single Blog Post Route */}
+          <Route path="*" element={<NotFound />} /> {/* <-- Add Not Found Route */}
         </Routes>
         <Chatbot />
       </div>

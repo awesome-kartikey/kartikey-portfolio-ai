@@ -4,16 +4,16 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import { queryHashnode } from '../services/hashnodeService';
 import { PageContainer } from '../components/layout';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { 
-  Loader, 
-  ArrowLeft, 
-  User, 
-  Calendar, 
-  Clock, 
-  Share2, 
-  BookmarkPlus, 
-  Heart, 
-  MessageCircle, 
+import {
+  Loader,
+  ArrowLeft,
+  User,
+  Calendar,
+  Clock,
+  Share2,
+  BookmarkPlus,
+  Heart,
+  MessageCircle,
   ChevronUp,
   Tag
 } from 'lucide-react';
@@ -51,7 +51,7 @@ const GET_POST_BY_SLUG_QUERY = `
   }
 `;
 
-export const BlogPost = () => {
+const BlogPost = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState(null);
@@ -59,13 +59,13 @@ export const BlogPost = () => {
   const [error, setError] = useState(null);
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [showScrollTop, setShowScrollTop] = useState(false);
-  
+
   const articleRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: articleRef,
     offset: ["start start", "end end"]
   });
-  
+
   // Transform scroll progress into various animations
   const progressBarWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
   const imageScale = useTransform(scrollYProgress, [0, 0.2], [1.1, 1]);
@@ -99,12 +99,12 @@ export const BlogPost = () => {
     };
 
     fetchPost();
-    
+
     // Set up scroll detection for "back to top" button
     const handleScroll = () => {
       setShowScrollTop(window.scrollY > 500);
     };
-    
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [slug]);
@@ -132,11 +132,11 @@ export const BlogPost = () => {
       return () => {
         const currentMetaDesc = document.querySelector('meta[name="description"]');
         if (currentMetaDesc && currentMetaDesc.content === seoDesc) {
-           currentMetaDesc.remove();
+          currentMetaDesc.remove();
         }
       };
     } else if (error) {
-        document.title = `Error - Kartikey Kumar`;
+      document.title = `Error - Kartikey Kumar`;
     }
   }, [post, error]);
 
@@ -170,14 +170,14 @@ export const BlogPost = () => {
   return (
     <PageContainer className="bg-white dark:bg-gray-900">
       {/* Progress bar at the top of the page */}
-      <motion.div 
+      <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-blue-600 dark:bg-blue-500 z-50"
         style={{ scaleX: progressBarWidth, transformOrigin: "0%" }}
       />
-      
+
       <div className="max-w-4xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }} 
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
           className="mb-8"
@@ -199,7 +199,7 @@ export const BlogPost = () => {
         )}
 
         {error && (
-          <motion.div 
+          <motion.div
             {...fadeIn}
             className="text-center p-12 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800"
           >
@@ -218,7 +218,7 @@ export const BlogPost = () => {
           <div ref={articleRef}>
             {/* Cover image with parallax effect */}
             {post.coverImage?.url && (
-              <motion.div 
+              <motion.div
                 className="relative h-96 mb-10 rounded-2xl overflow-hidden shadow-xl"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -228,15 +228,15 @@ export const BlogPost = () => {
                   src={post.coverImage.url}
                   alt={post.title}
                   className="w-full h-full object-cover"
-                  style={{ 
+                  style={{
                     scale: imageScale,
                     opacity: imageOpacity
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                
+
                 {/* Title overlay on image */}
-                <motion.div 
+                <motion.div
                   className="absolute bottom-0 left-0 right-0 p-8 text-white"
                   style={{ opacity: titleOpacity }}
                 >
@@ -255,7 +255,7 @@ export const BlogPost = () => {
             >
               {/* If no cover image, show title here */}
               {!post.coverImage?.url && (
-                <motion.h1 
+                <motion.h1
                   variants={fadeInUp}
                   className="text-4xl font-bold text-gray-900 dark:text-white mb-6"
                 >
@@ -264,7 +264,7 @@ export const BlogPost = () => {
               )}
 
               {/* Article metadata */}
-              <motion.div 
+              <motion.div
                 variants={fadeInUp}
                 className="flex flex-wrap items-center text-sm text-gray-600 dark:text-gray-400 mb-8 gap-x-6 gap-y-4 border-b border-gray-200 dark:border-gray-700 pb-6"
               >
@@ -272,10 +272,10 @@ export const BlogPost = () => {
                 {post.author && (
                   <div className="flex items-center">
                     {post.author.profilePicture ? (
-                      <img 
-                        src={post.author.profilePicture} 
-                        alt={post.author.name} 
-                        className="w-8 h-8 rounded-full mr-2 border-2 border-white dark:border-gray-800 shadow-sm" 
+                      <img
+                        src={post.author.profilePicture}
+                        alt={post.author.name}
+                        className="w-8 h-8 rounded-full mr-2 border-2 border-white dark:border-gray-800 shadow-sm"
                       />
                     ) : (
                       <User className="w-8 h-8 p-1 rounded-full mr-2 bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400" />
@@ -283,7 +283,7 @@ export const BlogPost = () => {
                     <span className="font-medium">{post.author.name}</span>
                   </div>
                 )}
-                
+
                 {/* Date */}
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-2 inline-block" />
@@ -293,7 +293,7 @@ export const BlogPost = () => {
                     })}
                   </span>
                 </div>
-                
+
                 {/* Read time */}
                 {post.readTimeInMinutes && (
                   <div className="flex items-center">
@@ -304,13 +304,13 @@ export const BlogPost = () => {
               </motion.div>
 
               {/* Tags */}
-              <motion.div 
+              <motion.div
                 variants={fadeInUp}
                 className="flex flex-wrap gap-2 mb-10"
               >
                 {post.tags?.map(tag => (
-                  <span 
-                    key={tag.slug} 
+                  <span
+                    key={tag.slug}
                     className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300"
                   >
                     <Tag size={14} className="mr-1.5" />
@@ -320,12 +320,12 @@ export const BlogPost = () => {
               </motion.div>
 
               {/* Social sharing / actions */}
-              <motion.div 
+              <motion.div
                 variants={fadeInUp}
                 className="flex flex-wrap justify-between items-center mb-10 gap-4"
               >
                 <div className="flex space-x-4">
-                  <motion.button 
+                  <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                     className="flex items-center justify-center w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-blue-900/30 hover:text-blue-700 dark:hover:text-blue-400 transition-colors duration-300"
@@ -340,7 +340,7 @@ export const BlogPost = () => {
                     <BookmarkPlus size={18} />
                   </motion.button>
                 </div>
-                
+
                 <div className="flex space-x-4">
                   <motion.button
                     whileHover={{ scale: 1.1 }}
@@ -403,10 +403,10 @@ export const BlogPost = () => {
                     }
                   }
                 `}</style>
-                
+
                 <div dangerouslySetInnerHTML={{ __html: post.content.html }} />
               </motion.div>
-              
+
               {/* Author bio section */}
               <motion.div
                 variants={fadeInUp}
@@ -414,10 +414,10 @@ export const BlogPost = () => {
               >
                 <div className="flex items-center mb-4">
                   {post.author?.profilePicture ? (
-                    <img 
-                      src={post.author.profilePicture} 
-                      alt={post.author.name} 
-                      className="w-16 h-16 rounded-lg mr-4 border-2 border-white dark:border-gray-800 shadow-md" 
+                    <img
+                      src={post.author.profilePicture}
+                      alt={post.author.name}
+                      className="w-16 h-16 rounded-lg mr-4 border-2 border-white dark:border-gray-800 shadow-md"
                     />
                   ) : (
                     <div className="w-16 h-16 rounded-lg mr-4 bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center">
@@ -433,7 +433,7 @@ export const BlogPost = () => {
                   Technical writer and web developer with a passion for creating intuitive, responsive web experiences.
                 </p>
               </motion.div>
-              
+
               {/* Related posts section */}
               {relatedPosts.length > 0 && (
                 <motion.div
@@ -443,16 +443,16 @@ export const BlogPost = () => {
                   <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Related Posts</h2>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     {relatedPosts.map(relatedPost => (
-                      <Link 
-                        key={relatedPost.id} 
+                      <Link
+                        key={relatedPost.id}
                         to={`/blog/${relatedPost.slug}`}
                         className="block bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden"
                       >
                         {relatedPost.coverImage?.url && (
-                          <img 
-                            src={relatedPost.coverImage.url} 
+                          <img
+                            src={relatedPost.coverImage.url}
                             alt={relatedPost.title}
-                            className="w-full h-32 object-cover" 
+                            className="w-full h-32 object-cover"
                           />
                         )}
                         <div className="p-4">
@@ -468,7 +468,7 @@ export const BlogPost = () => {
                   </div>
                 </motion.div>
               )}
-              
+
               {/* Comment section placeholder */}
               <motion.div
                 variants={fadeInUp}
@@ -481,7 +481,7 @@ export const BlogPost = () => {
                   </p>
                 </div>
               </motion.div>
-              
+
               {/* Newsletter subscription */}
               <motion.div
                 variants={fadeInUp}
@@ -509,7 +509,7 @@ export const BlogPost = () => {
             </motion.article>
           </div>
         )}
-        
+
         {/* Floating back to top button */}
         <motion.button
           className={`fixed bottom-8 right-8 p-3 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition-all duration-300 ${showScrollTop ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
@@ -526,3 +526,6 @@ export const BlogPost = () => {
     </PageContainer>
   );
 };
+
+
+export default BlogPost;

@@ -34,7 +34,7 @@ const GET_POSTS_QUERY = `
   }
 `;
 
-export const BlogList = () => {
+const BlogList = () => {
   const [posts, setPosts] = useState([]);
   const [filteredPosts, setFilteredPosts] = useState([]);
   const [publicationTitle, setPublicationTitle] = useState('');
@@ -79,22 +79,22 @@ export const BlogList = () => {
   // Filter posts based on search term and active tag
   useEffect(() => {
     let results = posts;
-    
+
     if (searchTerm) {
       const term = searchTerm.toLowerCase();
-      results = results.filter(post => 
-        post.title.toLowerCase().includes(term) || 
+      results = results.filter(post =>
+        post.title.toLowerCase().includes(term) ||
         post.brief.toLowerCase().includes(term) ||
         post.tags.some(tag => tag.name.toLowerCase().includes(term))
       );
     }
-    
+
     if (activeTag) {
-      results = results.filter(post => 
+      results = results.filter(post =>
         post.tags.some(tag => tag.slug === activeTag)
       );
     }
-    
+
     setFilteredPosts(results);
   }, [searchTerm, activeTag, posts]);
 
@@ -177,7 +177,7 @@ export const BlogList = () => {
         </motion.div>
 
         {/* Search and filter section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -213,11 +213,10 @@ export const BlogList = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setActiveTag(activeTag === tag.slug ? null : tag.slug)}
-                  className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${
-                    activeTag === tag.slug
+                  className={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 ${activeTag === tag.slug
                       ? 'bg-blue-600 text-white dark:bg-blue-500'
                       : 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600'
-                  }`}
+                    }`}
                 >
                   {tag.name}
                 </motion.button>
@@ -234,7 +233,7 @@ export const BlogList = () => {
         )}
 
         {error && (
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             className="text-center p-8 rounded-xl bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800"
@@ -305,22 +304,22 @@ export const BlogList = () => {
                         <span>{post.readTimeInMinutes} min read</span>
                       )}
                     </div>
-                    
+
                     {/* Title */}
                     <h2 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                       {post.title}
                     </h2>
-                    
+
                     {/* Brief */}
                     <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">
                       {post.brief}
                     </p>
-                    
+
                     {/* Tags */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {post.tags?.slice(0, 3).map(tag => (
-                        <span 
-                          key={tag.slug} 
+                        <span
+                          key={tag.slug}
                           className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300"
                         >
                           <Tag size={12} className="mr-1" />
@@ -333,7 +332,7 @@ export const BlogList = () => {
                         </span>
                       )}
                     </div>
-                    
+
                     {/* Read more link */}
                     <div className="flex justify-end">
                       <span className="inline-flex items-center text-blue-600 dark:text-blue-400 font-medium hover:text-blue-800 dark:hover:text-blue-300 transition-all duration-300">
@@ -351,3 +350,5 @@ export const BlogList = () => {
     </PageContainer>
   );
 };
+
+export default BlogList;

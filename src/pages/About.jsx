@@ -2,7 +2,7 @@ import React from 'react';
 import { About as AboutSection, DetailedAbout } from '../components/features/about';
 import { PageContainer } from '../components/layout';
 
-export const About = () => {
+const About = () => {
   return (
     <PageContainer>
       <AboutSection />
@@ -10,3 +10,5 @@ export const About = () => {
     </PageContainer>
   );
 };
+
+export default About;
