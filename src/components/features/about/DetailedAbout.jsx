@@ -112,17 +112,48 @@ export const DetailedAbout = () => {
             </motion.div>
           </div>
 
-          {/* Philosophy Section */}
-          <motion.div variants={itemVariants} className="bg-blue-50 dark:bg-gray-900/50 rounded-2xl p-8 md:p-12 text-center border border-blue-100 dark:border-gray-700">
-            <Heart className="w-10 h-10 text-red-500 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Engineering Philosophy</h3>
-            <blockquote className="text-xl md:text-2xl font-medium text-gray-700 dark:text-gray-200 italic mb-6">
-              "I treat coding as mindful creation — a process rooted in clarity, intent, and craftsmanship."
-            </blockquote>
-            <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Inspired by the Bhagavad Gita’s teachings on disciplined action, I believe in building tools that reduce friction, increase human creativity, and stand the test of time through clean architecture.
-            </p>
-          </motion.div>
+          {/* Philosophy Section - Terminal Style */}
+          <div className="mt-16 mx-auto max-w-4xl">
+            <div className="rounded-xl overflow-hidden bg-[#1e1e1e] border border-gray-700 shadow-2xl">
+              {/* Terminal Header */}
+              <div className="flex items-center px-4 py-2 bg-[#2d2d2d] border-b border-gray-700">
+                <div className="flex space-x-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                </div>
+                <div className="ml-4 text-xs text-gray-400 font-mono">philosophy.ts</div>
+              </div>
+
+              {/* Terminal Body */}
+              <div className="p-6 font-mono text-sm md:text-base leading-relaxed">
+                <div className="flex">
+                  <span className="text-gray-500 mr-4 select-none">1</span>
+                  <span className="text-purple-400">const</span> <span className="text-yellow-300 ml-2">engineeringPhilosophy</span> <span className="text-white mx-2">=</span> <span className="text-white">{`{`}</span>
+                </div>
+                <div className="flex">
+                  <span className="text-gray-500 mr-4 select-none">2</span>
+                  <span className="text-blue-300 ml-8">core_principle:</span> <span className="text-green-400 ml-2">"Mindful Creation"</span><span className="text-white">,</span>
+                </div>
+                <div className="flex">
+                  <span className="text-gray-500 mr-4 select-none">3</span>
+                  <span className="text-blue-300 ml-8">inspiration:</span> <span className="text-green-400 ml-2">"Bhagavad Gita: Disciplined Action"</span><span className="text-white">,</span>
+                </div>
+                <div className="flex">
+                  <span className="text-gray-500 mr-4 select-none">4</span>
+                  <span className="text-blue-300 ml-8">goal:</span> <span className="text-green-400 ml-2">"Reduce friction. Increase creativity."</span>
+                </div>
+                <div className="flex">
+                  <span className="text-gray-500 mr-4 select-none">5</span>
+                  <span className="text-white">{`};`}</span>
+                </div>
+                <div className="flex mt-4">
+                  <span className="text-gray-500 mr-4 select-none">6</span>
+                  <span className="text-gray-400">// TODO: Build something that lasts.</span>
+                </div>
+              </div>
+            </div>
+          </div>
 
           {/* Updated Technical Skills */}
           <motion.div variants={itemVariants} className="bg-white dark:bg-gray-900 rounded-xl shadow-md p-8">
