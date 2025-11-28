@@ -203,6 +203,10 @@ export default function Chatbot() {
       const { data, error } = await supabase.functions.invoke("chatbot", {
         body: JSON.stringify({
           message: trimmedInput,
+          history: messages.slice(-4).map(msg => ({
+            role: msg.role,
+            content: msg.text
+          })),
           context: resumeContext,
           sessionId: sessionId
         }),

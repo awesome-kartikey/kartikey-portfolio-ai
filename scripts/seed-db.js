@@ -107,7 +107,12 @@ const documents = [
     {
         content: "Interests: Enjoys studying Hindu scriptures like the Bhagavad Gita, exploring AI tools, and contributing to open-source. Considers coding a mindful practice.",
         metadata: { type: "interests" }
-    }
+    },
+    {
+        content: "Contact Information: The best way to reach Kartikey is via email at kartikeykumar.onglobe@gmail.com. He is available on LinkedIn (linkedin.com/in/kartikey-kumar) and GitHub (github.com/awesome-kartikey). Portfolio website: https://kartikey.is-a.dev.",
+        metadata: { type: "contact" }
+    },
+
 ];
 
 // Seed function
