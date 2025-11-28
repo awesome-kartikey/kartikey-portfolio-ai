@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { queryHashnode } from '../services/hashnodeService';
 import { PageContainer } from '../components/layout';
+import Seo from '../components/common/Seo';
 import { motion } from 'framer-motion';
 import { Loader, Search, Calendar, Tag, ChevronRight } from 'lucide-react';
 
@@ -98,11 +99,6 @@ const BlogList = () => {
     setFilteredPosts(results);
   }, [searchTerm, activeTag, posts]);
 
-  // Set document title
-  useEffect(() => {
-    document.title = `${publicationTitle || 'Blog'} - Kartikey Kumar`;
-  }, [publicationTitle]);
-
   // Get all unique tags
   const allTags = React.useMemo(() => {
     const tagsMap = new Map();
@@ -161,6 +157,11 @@ const BlogList = () => {
 
   return (
     <PageContainer className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 min-h-screen">
+      <Seo 
+        title={publicationTitle || 'Blog'} 
+        description="Explore thoughts, tutorials, and insights about web development and design by Kartikey Kumar."
+        href="https://kartikey.is-a.dev/blog"
+      />
       <div className="max-w-5xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: -30 }}

@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && npm run prerender",
+    "prerender": "vite preview --port 4173 & sleep 3 && node scripts/prerender.js",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -32,6 +33,7 @@
     "lucide-react": "^0.344.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.54.2",
     "react-intersection-observer": "^9.16.0",
     "react-markdown": "^10.1.0",
@@ -54,6 +56,7 @@
     "eslint-plugin-react-refresh": "^0.4.5",
     "globals": "^13.24.0",
     "postcss": "^8.4.35",
+    "puppeteer": "^24.31.0",
     "tailwindcss": "^3.4.1",
     "tailwindcss-animated": "^2.0.0"
   }

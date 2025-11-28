@@ -9,7 +9,7 @@ export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <section className="relative h-screen flex items-center">
+    <section className="relative min-h-screen flex items-center pt-20">
       {/* Background - transparent to show particles */}
       <div className="absolute inset-0 -z-10 bg-transparent" />
 

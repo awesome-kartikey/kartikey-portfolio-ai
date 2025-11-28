@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { queryHashnode } from '../services/hashnodeService';
 import { PageContainer } from '../components/layout';
+import Seo from '../components/common/Seo';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import {
   Loader,
@@ -109,37 +110,6 @@ const BlogPost = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [slug]);
 
-  // Set document title and meta description
-  useEffect(() => {
-    if (post) {
-      const seoTitle = post.seo?.title || post.title;
-      const seoDesc = post.seo?.description || `${post.title} - Blog post by ${post.author?.name}`;
-
-      document.title = `${seoTitle} - Kartikey Kumar`;
-
-      // Remove existing description meta tag if it exists
-      const existingMetaDesc = document.querySelector('meta[name="description"]');
-      if (existingMetaDesc) {
-        existingMetaDesc.remove();
-      }
-      // Add new description meta tag
-      const metaDesc = document.createElement('meta');
-      metaDesc.name = 'description';
-      metaDesc.content = seoDesc;
-      document.head.appendChild(metaDesc);
-
-      // Cleanup function to remove the meta tag when component unmounts
-      return () => {
-        const currentMetaDesc = document.querySelector('meta[name="description"]');
-        if (currentMetaDesc && currentMetaDesc.content === seoDesc) {
-          currentMetaDesc.remove();
-        }
-      };
-    } else if (error) {
-      document.title = `Error - Kartikey Kumar`;
-    }
-  }, [post, error]);
-
   // Function to scroll to top
   const scrollToTop = () => {
     window.scrollTo({
@@ -169,6 +139,14 @@ const BlogPost = () => {
 
   return (
     <PageContainer className="bg-white dark:bg-gray-900">
+      {post && (
+        <Seo 
+          title={post.seo?.title || post.title} 
+          description={post.seo?.description || post.brief || `${post.title} - Blog post by ${post.author?.name}`}
+          type="article"
+          href={`https://kartikey.is-a.dev/blog/${post.slug}`}
+        />
+      )}
       {/* Progress bar at the top of the page */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-blue-600 dark:bg-blue-500 z-50"
