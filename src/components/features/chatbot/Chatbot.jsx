@@ -149,6 +149,37 @@ export default function Chatbot() {
     }
   };
 
+  // Function to update or insert session
+  const saveChatHistory = async (currentMessages) => {
+    if (!sessionId || !supabase) return;
+
+    try {
+      // Try to update first
+      const { error: updateError } = await supabase
+        .from("chat_sessions")
+        .update({ messages: currentMessages })
+        .eq("session_id", sessionId);
+
+      // If update fails (or no rows affected), it might be a new session, so insert
+      if (updateError || true) {
+        // Actually, 'upsert' is safer. Let's use upsert.
+        const { error: upsertError } = await supabase
+          .from("chat_sessions")
+          .upsert(
+            {
+              session_id: sessionId,
+              messages: currentMessages
+            },
+            { onConflict: 'session_id' }
+          );
+
+        if (upsertError) console.error("Error saving chat:", upsertError);
+      }
+    } catch (err) {
+      console.error("Save chat error:", err);
+    }
+  };
+
   // --- Event Handlers ---
 
   const toggleChat = () => {
@@ -159,6 +190,7 @@ export default function Chatbot() {
     const trimmedInput = input.trim();
     if (!trimmedInput || loading) return;
 
+    // 1. Add User Message
     const userMessage = { role: "user", text: trimmedInput };
     const updatedMessages = [...messages, userMessage];
 
@@ -166,13 +198,8 @@ export default function Chatbot() {
     setInput("");
     setLoading(true);
 
-    updateSessionMessages(updatedMessages);
-
     try {
-      if (!supabase || !supabase.functions) {
-        throw new Error("Supabase functions client is not configured.");
-      }
-
+      // 2. Call Edge Function
       const { data, error } = await supabase.functions.invoke("chatbot", {
         body: JSON.stringify({
           message: trimmedInput,
@@ -181,25 +208,22 @@ export default function Chatbot() {
         }),
       });
 
-      if (error || !data?.reply) {
-        console.error("Chatbot function error:", error);
-        throw new Error(error?.message || "Invalid response from chatbot function.");
-      }
+      if (error) throw error;
 
+      // 3. Add Bot Message
       const botMessage = { role: "bot", text: data.reply };
       const finalMessages = [...updatedMessages, botMessage];
+
       setMessages(finalMessages);
-      updateSessionMessages(finalMessages);
+      setLoading(false);
+
+      // 4. SAVE TO DB (The Critical Step)
+      await saveChatHistory(finalMessages);
 
     } catch (err) {
-      console.error("Chatbot Send Error:", err);
-      const errorMessage = {
-        role: "bot",
-        text: "⚠️ Sorry, I encountered an issue. Please try asking again.",
-      };
+      console.error("Chat Error:", err);
+      const errorMessage = { role: "bot", text: "⚠️ Error connecting to AI." };
       setMessages((prev) => [...prev, errorMessage]);
-      updateSessionMessages([...updatedMessages, errorMessage]);
-    } finally {
       setLoading(false);
     }
   };
