@@ -5,7 +5,7 @@ import resumeContext from "./resumeContext";
 import { supabase } from "../../../supabaseClient.js";
 import ChatMessage from "./ChatMessage";
 import styles from "./chatbot.module.css";
-import { MessageSquare, X, Send, Bot } from "lucide-react";
+import { MessageSquare, X, Send } from "lucide-react";
 
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
@@ -276,7 +276,7 @@ export default function Chatbot() {
                   exit={{ opacity: 0, x: 10, scale: 0.9, transition: { duration: 0.2 } }}
                   style={{ pointerEvents: 'none' }}
                 >
-                  <span>Ask me anything!</span>
+                  <span>Recruiting? Ask me anything!</span>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -301,15 +301,18 @@ export default function Chatbot() {
             aria-labelledby="chatbot-heading"
           >
             <header className={styles.header}>
-              <h3 id="chatbot-heading"><Bot /> Chat with Me</h3>
+              <div className={styles.headerTitleGroup}>
+                <div className={styles.statusDot}></div>
+                <h3 id="chatbot-heading">Kartikey AI</h3>
+              </div>
               <motion.button
                 aria-label="Close Chat"
                 className={styles.closeButton}
                 onClick={toggleChat}
-                whileHover={{ scale: 1.15, rotate: 90, transition: { type: 'spring', stiffness: 400, damping: 15 } }}
+                whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <X />
+                <X size={20} />
               </motion.button>
             </header>
 

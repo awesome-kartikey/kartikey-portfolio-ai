@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 import { Link as ScrollLink } from 'react-scroll';
 import ParticleField from '../three/ParticleField.jsx';
+import VideoModal from '../../ui/VideoModal.jsx';
 
 export const Hero = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="relative h-screen flex items-center">
       {/* Background - transparent to show particles */}
@@ -57,7 +60,7 @@ export const Hero = () => {
         </motion.p>
 
         <motion.div
-          className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4"
+          className="flex flex-col sm:flex-row items-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
@@ -66,17 +69,25 @@ export const Hero = () => {
             to="projects"
             smooth={true}
             duration={500}
-            className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center"
+            className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center cursor-pointer"
           >
             View My Work
             <ArrowRight className="ml-2 h-5 w-5" />
           </ScrollLink>
 
+          <button
+            onClick={() => setIsModalOpen(true)}
+            className="px-8 py-3 bg-white dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 font-medium rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-200 dark:border-gray-700 flex items-center justify-center gap-2"
+          >
+            <Play className="h-5 w-5 fill-current" />
+            Watch Intro
+          </button>
+
           <ScrollLink
             to="contact"
             smooth={true}
             duration={500}
-            className="px-8 py-3 bg-gray-800 text-white hover:bg-gray-700 font-medium rounded-lg shadow-md hover:shadow-lg transition-all border border-gray-700"
+            className="px-8 py-3 bg-transparent text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center cursor-pointer"
           >
             Contact Me
           </ScrollLink>
@@ -114,6 +125,12 @@ export const Hero = () => {
           </svg>
         </div>
       </motion.div>
+
+      <VideoModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        videoId="samiRev8iVM"
+      />
     </section>
   );
 };
