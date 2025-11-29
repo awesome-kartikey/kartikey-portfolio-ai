@@ -34,6 +34,37 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
     rel="stylesheet">
+  
+  <!-- Apply dark mode IMMEDIATELY to prevent white flash -->
+  <script>
+    // This runs BEFORE any rendering happens
+    (function() {
+      const savedTheme = localStorage.getItem('theme');
+      const theme = savedTheme || 'dark';
+      document.documentElement.classList.add(theme);
+    })();
+  </script>
+  
+  <!-- Dark mode by default to prevent white flash -->
+  <style>
+    html, body, #root {
+      background-color: #111827 !important;
+      color: #9ca3af;
+      margin: 0;
+      padding: 0;
+    }
+    
+    /* Force dark background on everything until CSS loads */
+    * {
+      background-color: transparent;
+    }
+    
+    /* Override any potential white backgrounds */
+    html.dark, html.dark body, html.dark #root {
+      background-color: #111827 !important;
+    }
+  </style>
+  
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
