@@ -1,4 +1,16 @@
-# Kartikey Kumar - AI Enhanced Portfolio
+# 👋 Hi, I’m Kartikey Kumar
+
+I’m a **Full‑Stack Engineer** building modern, performant web experiences.  
+Check out my work, blog posts, and open‑source projects.
+
+---
+
+## 🌐 Portfolio
+
+**[Portfolio – kartikey.is-a.dev](https://kartikey.is-a.dev)**  
+A live showcase of my projects, blog, and résumé.
+
+---
 
 [![React](https://img.shields.io/badge/React-18.2.0-%2361DAFB)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-4.4.0-%23646CFF)](https://vitejs.dev/)
@@ -134,3 +146,40 @@ Navigate the portfolio using the navigation bar:
 - **AI Chatbot:** Click the chat bubble (bottom-right) to interact with the AI assistant. Ask questions about Kartikey's skills, projects, or experience.
 - **Theme Toggle:** Switch between light and dark modes using the sun/moon icon.
 - **View Resume:** Button to open the PDF resume in a new tab.
+
+---
+
+## 📫 Connect with Me
+
+- **GitHub:** [awesome‑kartikey](https://github.com/awesome‑kartikey)
+- **LinkedIn:** [kartikey‑kumar](https://www.linkedin.com/in/kartikey-kumar/)
+- **Twitter:** [@awesome_kartike](https://twitter.com/awesome_kartike)
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React, Vite, Tailwind CSS, Framer Motion
+- **Backend:** Node.js, Supabase, Vercel Functions
+- **Analytics:** Vercel Analytics (track resume & contact clicks)
+
+---
+
+## 📂 Projects (quick links)
+
+| Project                   | Description                                       | Live Demo                 |
+| ------------------------- | ------------------------------------------------- | ------------------------- |
+| **kartikey‑portfolio‑ai** | My personal portfolio built with Vite SSG & React | https://kartikey.is-a.dev |
+
+---
+
+## 📄 Resume
+
+- **Download:** [Kartikey Kumar Resume (PDF)](https://kartikey.is-a.dev/Kartikey_Kumar_Resume.pdf)
+
+---
+
+### 🎉 Thanks for stopping by!
+
+Feel free to explore, star, or fork any of my repos.  
+Open an issue if you have suggestions or want to collaborate.

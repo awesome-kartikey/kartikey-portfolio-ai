@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { track } from '@vercel/analytics';
 import { Link } from "react-router-dom";
 import { MobileMenu } from "./MobileMenu";
 import { useTheme } from "../../hooks/useTheme";
@@ -12,6 +13,7 @@ export const Navbar = () => {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const handleViewResume = () => {
+    track('Resume Downloaded', { location: 'Navbar' });
     const pdfUrl = '/Kartikey_Kumar_Resume.pdf';
     window.open(pdfUrl, '_blank');
   };
@@ -62,6 +64,7 @@ export const Navbar = () => {
             </Link>
             <Link
               to="/contact"
+              onClick={() => track('Contact Clicked', { location: 'Navbar' })}
               className="text-base font-medium text-gray-700 hover:text-blue-600 dark:text-gray-300 dark:hover:text-white"
             >
               Contact

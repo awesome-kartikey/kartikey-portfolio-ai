@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { track } from '@vercel/analytics';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -112,8 +113,8 @@ export const MobileMenu = ({ isOpen, onClose, onViewResume }) => {
                 </Link>
                 <Link
                   to="/contact"
+                  onClick={() => {onClose(); track('Contact Clicked', { location: 'MobileMenu' })}}
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 py-2 px-4 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
-                  onClick={onClose}
                 >
                   Contact
                 </Link>
