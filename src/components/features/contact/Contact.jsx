@@ -154,6 +154,7 @@ export const Contact = () => {
                   href="https://github.com/awesome-kartikey"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Visit my GitHub Profile"
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -164,6 +165,7 @@ export const Contact = () => {
                   href="https://www.linkedin.com/in/kartikey-kumar/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Connect with me on LinkedIn"
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -174,6 +176,7 @@ export const Contact = () => {
                   href="https://twitter.com/awesome_kartike"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Follow me on Twitter"
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -184,6 +187,7 @@ export const Contact = () => {
                   href="https://wa.me/917060758948?text=I%27m%20interested%20in%20hiring%20you"
                   target="_blank"
                   rel="noopener noreferrer"
+                  aria-label="Contact me on WhatsApp"
                   className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400"
                 >
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

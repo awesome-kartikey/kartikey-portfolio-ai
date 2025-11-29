@@ -24,6 +24,10 @@
     --color-card: 31 41 55; /* gray-800 */
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground transition-colors;
     font-feature-settings: "rlig" 1, "calt" 1;

@@ -65,15 +65,13 @@ export const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <ScrollLink
-            to="projects"
-            smooth={true}
-            duration={500}
+          <a
+            href="#projects"
             className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center cursor-pointer"
           >
             View My Work
             <ArrowRight className="ml-2 h-5 w-5" />
-          </ScrollLink>
+          </a>
 
           <button
             onClick={() => setIsModalOpen(true)}
@@ -83,14 +81,12 @@ export const Hero = () => {
             Watch Intro
           </button>
 
-          <ScrollLink
-            to="contact"
-            smooth={true}
-            duration={500}
+          <a
+            href="#contact"
             className="px-8 py-3 bg-transparent text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-all flex items-center justify-center cursor-pointer"
           >
             Contact Me
-          </ScrollLink>
+          </a>
         </motion.div>
       </div>
 

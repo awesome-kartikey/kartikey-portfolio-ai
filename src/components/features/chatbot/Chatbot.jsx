@@ -14,6 +14,7 @@ export default function Chatbot() {
   const [loading, setLoading] = useState(false);
   const [sessionId, setSessionId] = useState(null);
   const [showFloating, setShowFloating] = useState(false);
+  const [hasInitialized, setHasInitialized] = useState(false);
   const messagesContainerRef = useRef(null);
 
   // --- Effects ---
@@ -25,29 +26,6 @@ export default function Chatbot() {
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
-
-  // Generate or Retrieve Session ID
-  useEffect(() => {
-    let storedSessionId = localStorage.getItem("chat_session_id");
-    let sessionTimestamp = localStorage.getItem("chat_session_timestamp");
-    const oneDay = 24 * 60 * 60 * 1000;
-
-    if (storedSessionId && sessionTimestamp && (Date.now() - parseInt(sessionTimestamp, 10) < oneDay)) {
-      setSessionId(storedSessionId);
-    } else {
-      localStorage.removeItem("chat_session_id");
-      localStorage.removeItem("chat_session_timestamp");
-      createNewSession();
-    }
-  }, []);
-
-  // Fetch Chat Messages Once SessionID is Known
-  useEffect(() => {
-    if (sessionId) {
-      fetchSessionMessages();
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sessionId]);
 
   // Auto-Scrolling to the Latest Message
   useEffect(() => {
@@ -180,9 +158,35 @@ export default function Chatbot() {
     }
   };
 
+  // Fetch Chat Messages Once SessionID is Known
+  useEffect(() => {
+    if (sessionId && hasInitialized) {
+      fetchSessionMessages();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sessionId, hasInitialized]);
+
   // --- Event Handlers ---
 
   const toggleChat = () => {
+    if (!open && !hasInitialized) {
+      // Check for existing session in localStorage
+      let storedSessionId = localStorage.getItem("chat_session_id");
+      let sessionTimestamp = localStorage.getItem("chat_session_timestamp");
+      const oneDay = 24 * 60 * 60 * 1000;
+      
+      const isSessionValid = storedSessionId && 
+                             sessionTimestamp && 
+                             (Date.now() - parseInt(sessionTimestamp, 10) < oneDay);
+      if (isSessionValid) {
+          setSessionId(storedSessionId);
+      } else {
+        localStorage.removeItem("chat_session_id");
+        localStorage.removeItem("chat_session_timestamp");
+        createNewSession();
+      }
+      setHasInitialized(true);
+    }
     setOpen((prev) => !prev);
   };
 

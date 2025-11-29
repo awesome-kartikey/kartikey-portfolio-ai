@@ -1,6 +1,15 @@
 import { corsHeaders } from '../_shared/cors.ts';
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.39.3';
 
+interface Document {
+  content: string;
+}
+
+interface Message {
+  role: 'user' | 'assistant';
+  content: string;
+}
+
 console.log("Chatbot Function Initialized");
 
 Deno.serve(async (req) => {
@@ -37,19 +46,19 @@ Deno.serve(async (req) => {
 
     // 3. Search Vector DB
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
-    const { data: documents, error: searchError } = await supabase.rpc('match_portfolio_content', {
+    const { data: documents } = await supabase.rpc('match_portfolio_content', {
       query_embedding: queryEmbedding,
       match_threshold: 0.3,
       match_count: 3
     });
 
-    const contextText = documents?.map((doc: any) => doc.content).join("\n---\n") || "No specific details found.";
+    const contextText = documents?.map((doc: Document) => doc.content).join("\n---\n") || "No specific details found.";
 
     // 4. Construct the Chat Prompt with History
     // We format previous messages into the prompt so Gemini "remembers"
     let historyContext = "";
     if (history && Array.isArray(history)) {
-      historyContext = history.map((msg: any) =>
+      historyContext = history.map((msg: Message) =>
         `${msg.role === 'user' ? 'User' : 'Assistant'}: ${msg.content}`
       ).join("\n");
     }
@@ -93,7 +102,7 @@ Deno.serve(async (req) => {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
 
-  } catch (error: any) {
+  } catch (error: Error) {
     return new Response(JSON.stringify({ error: error.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } });
   }
 });
