@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, Suspense, lazy } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import { Link as ScrollLink } from 'react-scroll';
-import ParticleField from '../three/ParticleField.jsx';
 import VideoModal from '../../ui/VideoModal.jsx';
+
+const ParticleField = lazy(() => import('../three/ParticleField.jsx'));
 
 export const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,7 +14,9 @@ export const Hero = () => {
       {/* Background - transparent to show particles */}
       <div className="absolute inset-0 -z-10 bg-transparent" />
 
-      <ParticleField />
+      <Suspense fallback={null}>
+        <ParticleField />
+      </Suspense>
 
       {/* Content container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">

@@ -12,7 +12,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <HelmetProvider>
       <App />
-      <Analytics />
+      {import.meta.env.VERCEL && <Analytics />}
     </HelmetProvider>
   </StrictMode>
 );

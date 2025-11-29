@@ -72,7 +72,7 @@ export const projectsData = {
       title: "Spock Rock Game",
       description:
         "A classic game of Rock Paper Scissors extended with Lizard and Spock, implemented using HTML, CSS, and vanilla JavaScript. Play against the computer!",
-      image: "/project-screenshots/spock-rock-game.png",
+      image: "/project-screenshots/spock-rock-game.webp",
       tags: ["JavaScript", "HTML", "CSS", "Game Development", "Confetti.js"],
       sourceCode: "https://github.com/awesome-kartikey/spock-rock-game",
       liveDemo: "https://awesome-kartikey.github.io/spock-rock-game/",
@@ -89,7 +89,7 @@ export const projectsData = {
       title: "Quote Generator",
       description:
         "An application that generates random inspirational quotes from an API (with local fallback) and allows tweeting them.",
-      image: "/project-screenshots/quote-generator.png",
+      image: "/project-screenshots/quote-generator.webp",
       tags: ["JavaScript", "API Integration", "CSS", "HTML", "Fetch API"],
       sourceCode: "https://github.com/awesome-kartikey/quote-generator",
       liveDemo: "https://awesome-kartikey.github.io/quote-generator/",
@@ -106,7 +106,7 @@ export const projectsData = {
       title: "Picture-in-Picture Player",
       description:
         "A web app demonstrating Picture-in-Picture (PiP) for screen sharing, video files, and YouTube URLs, with custom controls and filters.",
-      image: "/project-screenshots/picture-in-picture-player.png",
+      image: "/project-screenshots/picture-in-picture-player.webp",
       tags: [
         "JavaScript",
         "Picture-in-Picture API",
@@ -131,7 +131,7 @@ export const projectsData = {
       title: "Book Keeper",
       description:
         "A simple, clean web application to save and manage your website bookmarks locally in your browser using LocalStorage.",
-      image: "/project-screenshots/book-keeper.png",
+      image: "/project-screenshots/book-keeper.webp",
       tags: ["JavaScript", "LocalStorage", "CSS", "HTML", "DOM Manipulation"],
       sourceCode: "https://github.com/awesome-kartikey/book-keeper",
       liveDemo: "https://awesome-kartikey.github.io/book-keeper/",
@@ -148,7 +148,7 @@ export const projectsData = {
       title: "NASA APOD Viewer",
       description:
         "Displays NASA's Astronomy Picture of the Day (APOD) using the NASA API, with features for loading more images and saving favorites.",
-      image: "/project-screenshots/nasa-apod-viewer.png",
+      image: "/project-screenshots/nasa-apod-viewer.webp",
       tags: [
         "JavaScript",
         "NASA API",
@@ -172,7 +172,7 @@ export const projectsData = {
       title: "Animated Navigation Nation",
       description:
         "A modern, elegant, full-screen navigation menu component featuring smooth slide-in/out and staggered link animations.",
-      image: "/project-screenshots/animated-navigation-nation.png",
+      image: "/project-screenshots/animated-navigation-nation.webp",
       tags: [
         "JavaScript",
         "CSS Animations",
@@ -195,7 +195,7 @@ export const projectsData = {
       title: "Infinity Scroll Gallery",
       description:
         "A photo gallery using the Unsplash API that implements infinite scrolling, loading new images automatically as the user scrolls down.",
-      image: "/project-screenshots/infinity-scroll-gallery.png",
+      image: "/project-screenshots/infinity-scroll-gallery.webp",
       tags: ["JavaScript", "Unsplash API", "CSS", "Lazy Loading", "Fetch API"],
       sourceCode: "https://github.com/awesome-kartikey/infinity-scroll",
       liveDemo: "https://awesome-kartikey.github.io/infinity-scroll/",
@@ -212,7 +212,7 @@ export const projectsData = {
       title: "Custom Countdown Timer",
       description:
         "A visually appealing web app to create custom countdown timers to any future date, with persistence using LocalStorage and a video background.",
-      image: "/project-screenshots/custom-countdown-timer.png",
+      image: "/project-screenshots/custom-countdown-timer.webp",
       tags: ["JavaScript", "Date Object", "CSS", "LocalStorage", "HTML5 Video"],
       sourceCode: "https://github.com/awesome-kartikey/custom-countdown",
       liveDemo: "https://awesome-kartikey.github.io/custom-countdown/",
@@ -230,7 +230,7 @@ export const projectsData = {
       title: "Music Player",
       description:
         "A functional web-based music player with standard controls (play, pause, next, previous), progress bar, and dynamic UI updates.",
-      image: "/project-screenshots/music-player.png",
+      image: "/project-screenshots/music-player.webp",
       tags: ["JavaScript", "HTML5 Audio API", "CSS", "HTML5", "Font Awesome"],
       sourceCode: "https://github.com/awesome-kartikey/music-player",
       liveDemo: "https://awesome-kartikey.github.io/music-player/",
@@ -247,7 +247,7 @@ export const projectsData = {
       title: "Web Calculator",
       description:
         "A sleek, simple, and functional web-based calculator for standard arithmetic operations, built with vanilla HTML, CSS, and JavaScript.",
-      image: "/project-screenshots/web-calculator.png",
+      image: "/project-screenshots/web-calculator.webp",
       tags: [
         "JavaScript",
         "Math Operations",
@@ -270,7 +270,7 @@ export const projectsData = {
       title: "Splash Page Demo",
       description:
         "A simple, static splash page for a conceptual mobile app, demonstrating basic HTML/CSS layout and JS background toggle.",
-      image: "/project-screenshots/splash-page-demo.png",
+      image: "/project-screenshots/splash-page-demo.webp",
       tags: ["JavaScript", "HTML", "CSS", "DOM Manipulation"],
       sourceCode: "https://github.com/awesome-kartikey/splash-page",
       liveDemo: "https://awesome-kartikey.github.io/splash-page/",
@@ -286,7 +286,7 @@ export const projectsData = {
       title: "Light/Dark Mode Toggle",
       description:
         "A template demonstrating light and dark theme switching using CSS custom properties and JavaScript, saving preference via LocalStorage.",
-      image: "/project-screenshots/lightdark-mode-toggle.png",
+      image: "/project-screenshots/lightdark-mode-toggle.webp",
       tags: ["JavaScript", "CSS Variables", "LocalStorage", "UI Design", "CSS"],
       sourceCode: "https://github.com/awesome-kartikey/light-and-dark-mode",
       liveDemo: "https://awesome-kartikey.github.io/light-and-dark-mode/",
@@ -303,7 +303,7 @@ export const projectsData = {
       title: "Form Validator",
       description:
         "A client-side form validator demonstrating HTML5 constraint validation and JavaScript enhancements for user feedback.",
-      image: "/project-screenshots/form-validator.png",
+      image: "/project-screenshots/form-validator.webp",
       tags: [
         "JavaScript",
         "Form Validation",
@@ -326,7 +326,7 @@ export const projectsData = {
       title: "Joke Teller",
       description:
         "A fun web application that tells programming jokes using the JokeAPI and reads them aloud using the VoiceRSS Text-to-Speech API.",
-      image: "/project-screenshots/joke-teller.png",
+      image: "/project-screenshots/joke-teller.webp",
       tags: [
         "JavaScript",
         "Text-to-Speech API",
@@ -349,7 +349,7 @@ export const projectsData = {
       title: "Paint Clone",
       description:
         "A web-based paint application clone with drawing, erasing, color/size selection, local storage save/load, and image download.",
-      image: "/project-screenshots/paint-clone.png",
+      image: "/project-screenshots/paint-clone.webp",
       tags: [
         "JavaScript",
         "Canvas API",
@@ -373,7 +373,7 @@ export const projectsData = {
       title: "Pong Game Clone",
       description:
         "A classic Pong game implementation playable in the browser (Player vs. Computer) with score tracking and increasing ball speed.",
-      image: "/project-screenshots/pong-game-clone.png",
+      image: "/project-screenshots/pong-game-clone.webp",
       tags: [
         "JavaScript",
         "Canvas API",
@@ -397,7 +397,7 @@ export const projectsData = {
       title: "Math Sprint Game",
       description:
         "A fast-paced math quiz game testing arithmetic speed. Choose question count, timed rounds, best score tracking via LocalStorage.",
-      image: "/project-screenshots/math-sprint-game.png",
+      image: "/project-screenshots/math-sprint-game.webp",
       tags: [
         "JavaScript",
         "Math Operations",
@@ -421,7 +421,7 @@ export const projectsData = {
       title: "Animated Template (AOS)",
       description:
         "A modern, responsive, single-page HTML template featuring smooth scroll animations powered by AOS.js and styled with Tailwind CSS.",
-      image: "/project-screenshots/animated-template-aos.png",
+      image: "/project-screenshots/animated-template-aos.webp",
       tags: [
         "JavaScript",
         "AOS.js",
@@ -446,7 +446,7 @@ export const projectsData = {
       title: "Drag and Drop Kanban Board",
       description:
         "An intuitive Kanban board web app with drag-and-drop functionality, inline editing, and local storage persistence.",
-      image: "/project-screenshots/drag-and-drop-kanban-board.png",
+      image: "/project-screenshots/drag-and-drop-kanban-board.webp",
       tags: [
         "JavaScript",
         "Drag and Drop API",
@@ -473,7 +473,7 @@ export const projectsData = {
       title: "Taskmate To-Do App",
       description:
         "A simple React To-Do list application allowing task management (add, edit, delete) with theme customization and localStorage persistence.",
-      image: "/project-screenshots/taskmate-to-do-app.png",
+      image: "/project-screenshots/taskmate-to-do-app.webp",
       tags: [
         "React",
         "useState",
@@ -497,7 +497,7 @@ export const projectsData = {
       title: "Cinemate Movie Discovery",
       description:
         "A movie discovery app built with React and Tailwind CSS, utilizing the TMDB API to browse popular, top-rated, and upcoming movies.",
-      image: "/project-screenshots/cinemate-movie-discovery.png",
+      image: "/project-screenshots/cinemate-movie-discovery.webp",
       tags: ["React", "React Router", "Tailwind CSS", "TMDB API", "Fetch API"],
       sourceCode: "https://github.com/awesome-kartikey/kartikey-cinemate",
       liveDemo: "https://kartikey-cinemate.netlify.app/",
@@ -514,7 +514,7 @@ export const projectsData = {
       title: "Shopmate (Basic Cart Assignment)",
       description:
         "A basic React shopping cart UI demonstrating product listing and a static cart page using React Router.",
-      image: "/project-screenshots/shopmate-redux-cart.png",
+      image: "/project-screenshots/shopmate-redux-cart.webp",
       tags: ["React", "React Router", "CSS", "Components"],
       sourceCode: "https://github.com/awesome-kartikey/kartikey-shopmate",
       liveDemo: "",
@@ -531,7 +531,7 @@ export const projectsData = {
       title: "Shopmate (Context & Reducer Cart)",
       description:
         "A simple shopping cart app using React Context API and useReducer for state management to handle adding/removing items.",
-      image: "/project-screenshots/shopmate-redux-cart.png",
+      image: "/project-screenshots/shopmate-redux-cart.webp",
       tags: [
         "React",
         "Context API",
@@ -555,7 +555,7 @@ export const projectsData = {
       title: "Shopmate (Redux Cart)",
       description:
         "A shopping cart application demonstrating state management using Redux Toolkit for adding/removing items and dynamic updates.",
-      image: "/project-screenshots/shopmate-redux-cart.png",
+      image: "/project-screenshots/shopmate-redux-cart.webp",
       tags: [
         "React",
         "Redux",
@@ -578,7 +578,7 @@ export const projectsData = {
       title: "Codebook E-Commerce",
       description:
         "A frontend e-commerce app for eBooks using React & Tailwind. Features product filtering, sorting, cart, mock checkout, and user dashboard.",
-      image: "/project-screenshots/codebook-e-commerce.png",
+      image: "/project-screenshots/codebook-e-commerce.webp",
       tags: [
         "React",
         "Tailwind CSS",
@@ -605,7 +605,7 @@ export const projectsData = {
       title: "Word Counter & Joke App",
       description:
         "A React app providing a word/character counter tool and a separate page displaying random Chuck Norris jokes from an API.",
-      image: "/project-screenshots/word-counter-joke-app.png",
+      image: "/project-screenshots/word-counter-joke-app.webp",
       tags: ["React", "React Router", "Fetch API", "CSS", "useState"],
       sourceCode: "https://github.com/awesome-kartikey/kartikey-wordcount-ul",
       liveDemo: "https://kartikey-wordcount-ul.netlify.app/",
@@ -622,7 +622,7 @@ export const projectsData = {
       title: "Monsters Rolodex",
       description:
         'A React app fetching users ("monsters") from an API, displaying them as cards with RoboHash images, and providing real-time search.',
-      image: "/project-screenshots/monsters-rolodex.png",
+      image: "/project-screenshots/monsters-rolodex.webp",
       tags: [
         "React",
         "Fetch API",
@@ -646,7 +646,7 @@ export const projectsData = {
       title: "Gym Exercise Finder",
       description:
         "A React app using Material UI to find gym exercises via RapidAPI (ExerciseDB & YouTube). Browse by body part, search, view details/GIFs/videos.",
-      image: "/project-screenshots/gym-exercise-finder.png",
+      image: "/project-screenshots/gym-exercise-finder.webp",
       tags: [
         "React",
         "Material UI",
@@ -671,7 +671,7 @@ export const projectsData = {
       title: "React Star Rating Component",
       description:
         "A simple, reusable, and interactive star rating component built with React and Vite, allowing visual rating selection.",
-      image: "/project-screenshots/react-star-rating.png",
+      image: "/project-screenshots/react-star-rating.webp",
       tags: ["React", "Vite", "Components", "CSS", "useState", "Hooks"],
       sourceCode: "https://github.com/awesome-kartikey/react-star-rating",
       liveDemo: "",
@@ -688,7 +688,7 @@ export const projectsData = {
       title: "Robofriends (Basic)",
       description:
         'A simple React app displaying a searchable list of "robot friends" with data from JSONPlaceholder and images from RoboHash.',
-      image: "/project-screenshots/robofriends.png",
+      image: "/project-screenshots/robofriends.webp",
       tags: ["React", "Fetch API", "API Integration", "Tachyons", "CSS"],
       sourceCode: "https://github.com/awesome-kartikey/robofriends",
       liveDemo: "",
@@ -705,7 +705,7 @@ export const projectsData = {
       title: "Twitter Clone Frontend",
       description:
         "A frontend clone of Twitter using Next.js, GraphQL, React Query, and Tailwind CSS. Handles Google Auth, tweet feed, posting (with images), profiles, following.",
-      image: "/project-screenshots/twitter-clone-frontend.png",
+      image: "/project-screenshots/twitter-clone-frontend.webp",
       tags: [
         "React",
         "Next.js",
@@ -733,7 +733,7 @@ export const projectsData = {
       title: "Maze Pathfinder Visualizer",
       description:
         "An interactive maze generator (Recursive Backtracking) and pathfinding algorithm visualizer (BFS, DFS) built using React and Vite.",
-      image: "/project-screenshots/maze-pathfinder-visualizer.png",
+      image: "/project-screenshots/maze-pathfinder-visualizer.webp",
       tags: [
         "React",
         "Vite",
@@ -759,7 +759,7 @@ export const projectsData = {
       title: "Vue Image Filter Project",
       description:
         "A Vue 3 app allowing image upload, applying filters (via Photon WASM), and downloading the result. Built with Vite, TypeScript, Pinia, Tailwind.",
-      image: "/project-screenshots/vue-image-filter-project.png",
+      image: "/project-screenshots/vue-image-filter-project.webp",
       tags: [
         "Vue",
         "Vite",
@@ -810,7 +810,7 @@ export const projectsData = {
       title: "Discord Weather/Astro Bot",
       description:
         "A Discord bot providing weather forecasts and astronomical data (sunrise/sunset) using slash commands and the WeatherAPI.com.",
-      image: "/project-screenshots/discord-weather-astro-bot.png",
+      image: "/project-screenshots/discord-weather-astro-bot.webp",
       tags: [
         "Node.js",
         "discord.js",
@@ -834,7 +834,7 @@ export const projectsData = {
       title: "Kepler Habitable Planets Finder",
       description:
         "A Node.js script that analyzes NASA Kepler data (CSV) to identify potentially habitable exoplanets based on specific criteria.",
-      image: "/project-screenshots/kepler-habitable-planets.png",
+      image: "/project-screenshots/kepler-habitable-planets.webp",
       tags: ["Node.js", "CSV Parsing", "Data Processing", "Streams"],
       sourceCode: "https://github.com/awesome-kartikey/planets-project",
       liveDemo: "",
@@ -850,7 +850,7 @@ export const projectsData = {
       title: "Short URL Service (Node.js)",
       description:
         "A Node.js/Express/MongoDB application for shortening URLs, with user authentication, redirection, and click tracking.",
-      image: "/project-screenshots/short-url-service-nodejs.png",
+      image: "/project-screenshots/short-url-service-nodejs.webp",
       tags: [
         "Node.js",
         "Express",
@@ -876,7 +876,7 @@ export const projectsData = {
       title: "Stack Overflow Clone Backend",
       description:
         "Backend API service for a Stack Overflow clone using Node.js, Express, MongoDB. Provides endpoints for auth, questions, answers, and profiles.",
-      image: "/project-screenshots/stackoverflow-clone-backend.png",
+      image: "/project-screenshots/stackoverflow-clone-backend.webp",
       tags: [
         "Node.js",
         "Express",
@@ -901,7 +901,7 @@ export const projectsData = {
       title: "Twitter Clone Backend Server",
       description:
         "A GraphQL backend for a Twitter clone using Node.js, TypeScript, PostgreSQL, Prisma, Redis, S3. Handles auth, tweets, follows, image uploads.",
-      image: "/project-screenshots/twitter-clone-backend.png",
+      image: "/project-screenshots/twitter-clone-backend.webp",
       tags: [
         "Node.js",
         "Express",
@@ -936,7 +936,7 @@ export const projectsData = {
       title: "AWS Serverless Distance Calculator",
       description:
         "A web app using AWS serverless tech (API Gateway, Lambda, DynamoDB) to calculate the great-circle distance between two points.",
-      image: "/project-screenshots/aws-serverless-distance-calculator.png",
+      image: "/project-screenshots/aws-serverless-distance-calculator.webp",
       tags: [
         "AWS Lambda",
         "API Gateway",
@@ -963,7 +963,7 @@ export const projectsData = {
       title: "Crwn Clothing E-commerce",
       description:
         "A full-stack e-commerce app (React/Redux frontend, Firebase backend) for clothing. Features browsing, cart, auth (Email/Google), Stripe payments.",
-      image: "/project-screenshots/crwn-clothing-e-commerce.png",
+      image: "/project-screenshots/crwn-clothing-e-commerce.webp",
       tags: [
         "React",
         "Redux",
@@ -993,7 +993,7 @@ export const projectsData = {
       title: "Kartikey Portfolio with AI Chatbot",
       description:
         "An interactive developer portfolio (React/Vite/Tailwind) with animations, blog integration (Hashnode), contact form (EmailJS), and an AI chatbot (Gemini via Supabase).",
-      image: "/project-screenshots/kartikey-portfolio-with-ai-chatbot.png",
+      image: "/project-screenshots/kartikey-portfolio-with-ai-chatbot.webp",
       tags: [
         "React",
         "Vite",
@@ -1025,7 +1025,7 @@ export const projectsData = {
       title: "WriteNode Blogging App",
       description:
         "A lightweight React blogging app using Firebase (Auth/Firestore). Users can log in via Google, create posts, and delete their own posts.",
-      image: "/project-screenshots/writenode-blogging-app.png",
+      image: "/project-screenshots/writenode-blogging-app.webp",
       tags: [
         "React",
         "Firebase",
@@ -1051,7 +1051,7 @@ export const projectsData = {
       title: "Multiplayer Pong Game",
       description:
         "A real-time multiplayer Pong game built with Node.js, Express, Socket.IO, and HTML Canvas. Features simple matchmaking.",
-      image: "/project-screenshots/multiplayer-pong-game.png",
+      image: "/project-screenshots/multiplayer-pong-game.webp",
       tags: [
         "Node.js",
         "Express",
@@ -1078,7 +1078,7 @@ export const projectsData = {
       title: "NASA Mission Control Dashboard",
       description:
         "A full-stack app to explore habitable planets (Kepler data), schedule/view rocket launches (including SpaceX data), and abort missions, with a sci-fi UI.",
-      image: "/project-screenshots/nasa-mission-control-dashboard.png",
+      image: "/project-screenshots/nasa-mission-control-dashboard.webp",
       tags: [
         "React",
         "Node.js",
@@ -1108,7 +1108,7 @@ export const projectsData = {
       // NEW SEO DESCRIPTION:
       description:
         "A real-time collaborative workspace mirroring Notion's core functionality. Utilizes Convex for sub-millisecond database syncing and optimistic UI updates, ensuring a lag-free experience for concurrent users. Demonstrates mastery of complex state management and recursive component patterns.",
-      image: "/project-screenshots/notion-clone-jotion.png",
+      image: "/project-screenshots/notion-clone-jotion.webp",
       tags: [
         "Real-Time WebSocket", // Added Keyword
         "Convex Database",
@@ -1140,7 +1140,7 @@ export const projectsData = {
       title: "SmartBrain Face Detection",
       description:
         "A full-stack app (React frontend, Node/Express/PostgreSQL backend) that detects faces in images via URL using the Clarifai API and tracks user submissions.",
-      image: "/project-screenshots/smartbrain-face-detection.png",
+      image: "/project-screenshots/smartbrain-face-detection.webp",
       tags: [
         "React",
         "Node.js",
@@ -1170,7 +1170,7 @@ export const projectsData = {
       // NEW SEO DESCRIPTION:
       description:
         "A production-ready AI SaaS platform architected with Next.js 14 and scalable cloud infrastructure. Features an async video processing pipeline utilizing OpenAI Whisper and GPT-4 for automated content generation. Implements secure multi-tenancy via Clerk and monetized with Stripe subscription webhooks.",
-      image: "/project-screenshots/speakeasyai-videoaudio-to-blog.png",
+      image: "/project-screenshots/speakeasyai-videoaudio-to-blog.webp",
       tags: [
         "Production-Ready SaaS", // Added Keyword
         "Next.js",
@@ -1208,7 +1208,7 @@ export const projectsData = {
       title: "Stack Overflow Clone (Kartikey)",
       description:
         "A full-stack Stack Overflow clone using React/Redux frontend and Node/Express/MongoDB backend. Features auth, Q&A, voting, tags, profiles.",
-      image: "/project-screenshots/stack-overflow-clone-kartikey.png",
+      image: "/project-screenshots/stack-overflow-clone-kartikey.webp",
       tags: [
         "React",
         "Redux",
@@ -1240,7 +1240,7 @@ export const projectsData = {
       // NEW SEO DESCRIPTION:
       description:
         "A scalable Q&A platform engineered for high-traffic performance. Built with Next.js 14 Server Actions to minimize client-side bundle size and improve Core Web Vitals. Features a complex recommendation engine using MongoDB aggregation pipelines and AI-driven answer generation.",
-      image: "/project-screenshots/dev-overflow-stack-overflow-clone-nextjs-14.png",
+      image: "/project-screenshots/dev-overflow-stack-overflow-clone-nextjs-14.webp",
       tags: [
         "Next.js Server Actions",
         "MongoDB Aggregations",

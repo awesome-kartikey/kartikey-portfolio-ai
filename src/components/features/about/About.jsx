@@ -34,7 +34,7 @@ export const About = () => {
             className="relative rounded-2xl overflow-hidden shadow-xl"
           >
             <img
-              src="/Kartikey_Kumar_Portfolio_Pic.jpg"
+              src="/Kartikey_Kumar_Portfolio_Pic.webp"
               alt="Profile"
               className="w-full h-full object-cover"
             />

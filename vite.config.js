@@ -17,7 +17,21 @@ export default defineConfig({
       ]
     })
   ],
+  define: {
+    'import.meta.env.VERCEL': JSON.stringify(process.env.VERCEL),
+  },
   optimizeDeps: {
     exclude: ['lucide-react'],
+  },
+  build: {
+    chunkSizeWarningLimit: 1000,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-three': ['three', '@react-three/fiber', '@react-three/drei'],
+          'vendor-motion': ['framer-motion'],
+        },
+      },
+    },
   },
 });

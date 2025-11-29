@@ -5,7 +5,7 @@ const Seo = ({ title, description, type = 'website', href }) => {
   const defaultTitle = "Kartikey Kumar | Full Stack Developer & AI Engineer";
   const defaultDescription = "Kartikey Kumar | AI Engineer & Full Stack Developer specializing in Next.js, AI Integrations, and SaaS development. Based in Roorkee, India.";
   const siteUrl = "https://kartikey.is-a.dev"; 
-  const defaultImage = `${siteUrl}/og-image.png`;
+  const defaultImage = `${siteUrl}/og-image.webp`;
 
   const finalTitle = title ? `${title} | Kartikey Kumar` : defaultTitle;
   const finalDescription = description || defaultDescription;

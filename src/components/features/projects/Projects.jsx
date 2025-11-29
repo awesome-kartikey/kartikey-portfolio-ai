@@ -9,7 +9,7 @@ const projects = [
     title: "SpeakEasyAI (Video/Audio to Blog)",
     description:
       "An AI-powered SaaS app (Next.js 14, OpenAI, Stripe, Clerk, NeonDB, UploadThing) that converts video/audio files into SEO-friendly blog posts.",
-    image: "/project-screenshots/speakeasyai-videoaudio-to-blog.png",
+    image: "/project-screenshots/speakeasyai-videoaudio-to-blog.webp",
     tags: [
       "Next.js",
       "TypeScript",
@@ -42,7 +42,7 @@ const projects = [
     title: "SmartBrain",
     description:
       "A full-stack face detection application that uses machine learning to detect faces in images. Features user authentication, profile management, and API integration with Clarifai.",
-    image: "/project-screenshots/smartbrain-face-detection.png",
+    image: "/project-screenshots/smartbrain-face-detection.webp",
     tags: ["React", "Node.js", "PostgreSQL", "Machine Learning"],
     sourceCode: "https://github.com/awesome-kartikey/smart-brain",
     liveDemo: "https://intellieyes.netlify.app/",
@@ -58,7 +58,7 @@ const projects = [
     description:
       "A modern Stack Overflow clone using Next.js 14, TypeScript, MongoDB, Clerk Auth, TinyMCE editor, AI answer generation (OpenAI), voting, reputation, collections.",
     image:
-      "/project-screenshots/dev-overflow-stack-overflow-clone-nextjs-14.png",
+      "/project-screenshots/dev-overflow-stack-overflow-clone-nextjs-14.webp",
     tags: [
       "Next.js",
       "TypeScript",
