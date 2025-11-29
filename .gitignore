@@ -32,3 +32,4 @@ supabase/.temp/cli-latest
 # Misc
 *.bak
 Thumbs.db
+.vite-react-ssg-temp

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Navbar, ScrollToTop } from './components/layout';
 import { Home, About, Projects, Skills, Contact, BlogList, BlogPost, NotFound } from './pages';
 import Chatbot from './components/features/chatbot/Chatbot';
+
 function App() {
   return (
     <Router>
@@ -15,9 +16,9 @@ function App() {
           <Route path="/projects" element={<Projects />} />
           <Route path="/skills" element={<Skills />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/blog" element={<BlogList />} />        {/* <-- Add Blog List Route */}
-          <Route path="/blog/:slug" element={<BlogPost />} />   {/* <-- Add Single Blog Post Route */}
-          <Route path="*" element={<NotFound />} /> {/* <-- Add Not Found Route */}
+          <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Chatbot />
       </div>
